@@ -30,6 +30,7 @@ namespace PixiJsDemo
         public void Start()
         {
             var renderer = (CanvasRenderer)app.renderer;
+
             for (var i = 0; i < 10; i++)
             {
                 createBunny(
@@ -102,6 +103,7 @@ namespace PixiJsDemo
             if (target.dragging)
             {
                 var newPosition = target.data.getLocalPosition(target.parent);
+
                 target.x = newPosition.x;
                 target.y = newPosition.y;
             }
