@@ -1,6 +1,6 @@
 {
   // The folder to output JavaScript (.js) files.
-  "output": "$(OutDir)/bridge/",
+  "output": "../../dist/babylon.js/js/",
 
   // Enable the Bridge Console.
   // Default is false.
