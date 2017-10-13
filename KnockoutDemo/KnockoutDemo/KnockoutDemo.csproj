@@ -74,9 +74,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="demo.html" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="bin\Debug\bridge\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
