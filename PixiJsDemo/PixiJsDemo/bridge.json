@@ -1,6 +1,6 @@
 {
   // The folder to output JavaScript (.js) files.
-  "output": "$(OutDir)/bridge/",
+  "output": "../../dist/pixi.js/js/",
 
   // Enable the Bridge Console.
   // Default is false.
@@ -9,7 +9,7 @@
   },
 
   "html": {
-    "disabled":  true 
+    "disabled": true
   },
 
   // Enable browser debugging of C# files.
