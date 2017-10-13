@@ -37,7 +37,7 @@ namespace BabylonJsDemo.SceneProviders
             }
 
             //Create a manager for the player's sprite animation
-            var spriteManagerPlayer = new SpriteManager("playerManager", "https://demos.retyped.com/dist/babylon.js/dist/img/player.png", 2, 64, scene);
+            var spriteManagerPlayer = new SpriteManager("playerManager", "https://demos.retyped.com/dist/babylon.js/img/player.png", 2, 64, scene);
 
             // First animated player
             var player = new Sprite("player", spriteManagerPlayer);
