@@ -18,7 +18,7 @@ namespace BabylonJsDemo.SceneProviders
 
             // Create a sprite manager to optimize GPU ressources
             // Parameters : name, imgUrl, capacity, cellSize, scene
-            var spriteManagerTrees = new SpriteManager("treesManager", "https://demos.retyped.com/babylon.js/img/palm.png", 2000, 800, scene);
+            var spriteManagerTrees = new SpriteManager("treesManager", "https://demos.retyped.com/babylon.js/dist/img/palm.png", 2000, 800, scene);
 
             //We create 2000 trees at random positions
             for (var i = 0; i < 2000; i++)
@@ -37,7 +37,7 @@ namespace BabylonJsDemo.SceneProviders
             }
 
             //Create a manager for the player's sprite animation
-            var spriteManagerPlayer = new SpriteManager("playerManager", "https://demos.retyped.com/babylon.js/img/player.png", 2, 64, scene);
+            var spriteManagerPlayer = new SpriteManager("playerManager", "https://demos.retyped.com/babylon.js/dist/img/player.png", 2, 64, scene);
 
             // First animated player
             var player = new Sprite("player", spriteManagerPlayer);
