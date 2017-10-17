@@ -9,10 +9,6 @@
   Bootstrap Overrides and General Styles
 ---------------------------------------------------*/
 
-body {
-
-}
-
 a:hover {
   text-decoration: none;
 }
@@ -25,6 +21,7 @@ a:hover {
 .text-secondary {
   color: var(--gray-600) !important;
 }
+
 
 /*---------------------------------------------------
   Header / Navbar
@@ -107,7 +104,6 @@ a:hover {
 /*---------------------------------------------------
   Footer
 ---------------------------------------------------*/
-
 
 .site-footer {
   height: 6.25rem;
