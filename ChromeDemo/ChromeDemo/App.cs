@@ -1,9 +1,12 @@
 ﻿using Bridge;
 
+using static Retyped.dom;
 using static Retyped.jquery;
 
 namespace ChromeDemo
 {
+    using chrome = Retyped.chrome.chrome2;
+
     public class App
     {
         public static void Main()
@@ -23,6 +26,18 @@ namespace ChromeDemo
                 quoteEl.text(response.contents.quotes[0].quote);
                 authorEl.text(response.contents.quotes[0].author);
                 return null;
+            });
+
+            // Let's reload a new tab every 3 seconds:
+            chrome.tabs.onUpdated.addListener((id, info, tab) =>
+            {
+                if (tab.url == "chrome://newtab/")
+                {
+                    setTimeout(e =>
+                    {
+                        chrome.tabs.reload(id);
+                    }, 3000);
+                }
             });
         }
     }

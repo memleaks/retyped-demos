@@ -41,7 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bridge.json" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="README.md" />
     <None Include="Unpacked\manifest.json" />
     <None Include="Unpacked\_locales\en\messages.json" />
@@ -59,6 +61,10 @@
       <HintPath>..\packages\Bridge.Newtonsoft.Json.1.2.1\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Retyped.chrome, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.chrome.0.1.6500\lib\net40\Retyped.chrome.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Retyped.Core, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Retyped.Core.1.2.6477\lib\net40\Retyped.Core.dll</HintPath>
       <Private>True</Private>
@@ -69,6 +75,14 @@
     </Reference>
     <Reference Include="Retyped.es5, Version=2.3.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Retyped.es5.2.3.6477\lib\net40\Retyped.es5.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Retyped.filesystem, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.filesystem.0.1.6477\lib\net40\Retyped.filesystem.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Retyped.filewriter, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.filewriter.0.1.6477\lib\net40\Retyped.filewriter.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.jquery, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
