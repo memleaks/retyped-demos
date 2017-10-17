@@ -1,0 +1,16 @@
+{
+  "name": "Beautiful New Tab (by Bridge.NET and Retyped)",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Get beautiful images with quotes whenever you open a new tab. Built with Bridge.NET and Retyped.",
+  "homepage_url": "http://bridge.net",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "chrome_url_overrides": {
+    "newtab": "src/override/override.html"
+  }
+}
