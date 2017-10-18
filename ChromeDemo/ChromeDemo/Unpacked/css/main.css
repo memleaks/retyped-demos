@@ -1,33 +1,45 @@
-@import url(https://fonts.googleapis.com/css?family=PT+Serif:400italic);  
-body  
-{  
-    background-image: url("https://source.unsplash.com/category/nature/1920x1080");  
-    background-size: cover;  
-    background-repeat: no-repeat;  
-}  
-h1  
-{  
-    font-family: 'PT Serif', serif;  
-    font-size: 2.5em;  
-    text-align: center;  
-    color: #fff;  
-    text-shadow: 2px 2px 3px rgba(150, 150, 150, 0.75);  
-}  
-.quote  
-{  
-    color: #ffffff;  
-    text-align: center;  
-    vertical-align: middle;  
-    padding: 19% 15% 0 15% ;  
-}#quoteblock  
-{  
-    font-family: 'PT Serif', serif;  
-    text-shadow: 2px 2px 3px rgba(150, 150, 150, 0.75);  
-    font-size: 2em;  
-}#author  
-{  
-    font-family: 'PT Serif', serif;  
-    text-align: center;  
-    color: #fff;  
-    text-shadow: 2px 2px 3px rgba(150, 150, 150, 0.75);  
-}  
+@import url(https://fonts.googleapis.com/css?family=PT+Serif:400italic);
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-image: url("https://source.unsplash.com/category/nature/1920x1080");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.container {
+  padding: 2.5em 4em;
+  width: 100%;
+}
+
+h1 {
+  margin-top: 0;
+  font-family: 'PT Serif', serif;
+  font-size: 2.5em;
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 3px rgba(150, 150, 150, 0.75);
+}
+
+.quote {
+  color: #ffffff;
+}
+
+#quoteblock {
+  font-family: 'PT Serif', serif;
+  text-shadow: 2px 2px 3px rgba(150, 150, 150, 0.75);
+  font-size: 2em;
+}
+
+#author {
+  font-family: 'PT Serif', serif;
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 3px rgba(150, 150, 150, 0.75);
+}
