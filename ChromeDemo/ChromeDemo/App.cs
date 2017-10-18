@@ -23,12 +23,14 @@ namespace ChromeDemo
             jQuery.get(url, "", (data, status, xhr) =>
             {
                 var response = (QuoteResponse) data;
+
                 quoteEl.text(response.contents.quotes[0].quote);
                 authorEl.text(response.contents.quotes[0].author);
+
                 return null;
             });
 
-            // Let's reload a new tab every 3 seconds:
+            // Let's reload a new tab every 15 seconds:
             chrome.tabs.onUpdated.addListener((id, info, tab) =>
             {
                 if (tab.url == "chrome://newtab/")
@@ -36,7 +38,7 @@ namespace ChromeDemo
                     setTimeout(e =>
                     {
                         chrome.tabs.reload(id);
-                    }, 3000);
+                    }, 15000);
                 }
             });
         }
