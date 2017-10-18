@@ -1,9 +1,10 @@
-Steps for running the Extension:
+## Steps for running the Extension
 
-Compile the solution
-Open Chrome browser
-Write in the address line: chrome://extensions/
-Check "Developer mode" (if unchecked)
-Click on "Load unpacked extension" button
-Browse to ChromeDemo/Unpacked folder, press OK.
-Open a new tab in Chrome to see the Extension in action.
+1. Fork the repository.
+1. Compile the solution.
+1. Open Chrome browser.
+1. Write in the address line: [chrome://extensions/](chrome://extensions/)
+1. Check **Developer mode** (if unchecked).
+1. Click on **Load unpacked extension** button
+1. Browse to [ChromeDemo/Unpacked](https://github.com/Retyped/Demos/tree/master/ChromeDemo/ChromeDemo/Unpacked) local folder, press OK.
+1. Open a new tab in Chrome to see the Extension in action.
