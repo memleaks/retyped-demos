@@ -16,13 +16,13 @@ namespace SweetAlertDemo
             var promptSettings = ObjectLiteral.Create<SettingsOrPromptSettings>();
 
             // Set Settings type fields (Item1 has type SweetAlert.Settings):
-            promptSettings.Item1.title = "SweetAlert demo";
+            promptSettings.Type1.title = "SweetAlert demo";
 
             // Set PromtModalSettings fields (Item2 has type SweetAlert.PromtModalSettings):
-            promptSettings.Item2.type = sweetalert.Literals.input;
-            promptSettings.Item2.text = "Please enter some text or press Reject:";
-            promptSettings.Item2.showCancelButton = true;
-            promptSettings.Item2.cancelButtonText = "Reject";
+            promptSettings.Type2.type = sweetalert.Literals.input;
+            promptSettings.Type2.text = "Please enter some text or press Reject:";
+            promptSettings.Type2.showCancelButton = true;
+            promptSettings.Type2.cancelButtonText = "Reject";
 
             // In JavaScript the call would look like: swal(promptSettings, ...);
             // Since swal is an object, the same call should be done using "Self" method:
