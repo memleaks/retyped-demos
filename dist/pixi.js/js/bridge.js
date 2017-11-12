@@ -1,5 +1,5 @@
 /**
- * @version   : 16.4.1 - Bridge.NET
+ * @version   : 16.5.0 - Bridge.NET
  * @author    : Object.NET, Inc. http://bridge.net/
  * @copyright : Copyright 2008-2017 Object.NET, Inc. http://object.net/
  * @license   : See license.txt and https://github.com/bridgedotnet/Bridge/blob/master/LICENSE.md
@@ -872,6 +872,24 @@
 
             return obj;
         },
+
+        copyProperties: function (to, from) {
+            var names = Bridge.getPropertyNames(from, false),
+                i;
+
+            for (i = 0; i < names.length; i++) {
+                var name = names[i],
+                    own = from.hasOwnProperty(name),
+                    dcount = name.split("$").length;
+
+                if (own && (dcount === 1 || dcount === 2 && name.match("\$\d+$"))) {
+                    to[name] = from[name];
+                }
+                
+            }
+
+            return to;
+        }, 
 
         merge: function (to, from, callback, elemFactory) {
             if (to == null) {
@@ -3099,8 +3117,8 @@
     // @source systemAssemblyVersion.js
 
     Bridge.init(function () {
-        Bridge.SystemAssembly.version = "16.4.1";
-        Bridge.SystemAssembly.compiler = "16.4.1";
+        Bridge.SystemAssembly.version = "16.5.0";
+        Bridge.SystemAssembly.compiler = "16.5.0";
     });
 
     Bridge.define("Bridge.Utils.SystemAssemblyVersion");
@@ -4003,6 +4021,10 @@
             } else if (ci.sm) {
                 return ci.td[ci.sn].apply(null, args);
             } else {
+                if (ci.td.$literal) {
+                    return (ci.sn ? ci.td[ci.sn] : ci.td).apply(ci.td, args);
+                }
+
                 return Bridge.Reflection.applyConstructor(ci.sn ? ci.td[ci.sn] : ci.td, args);
             }
         },
@@ -11876,14 +11898,16 @@ Bridge.Class.addExtend(System.Boolean, [System.IComparable$1(System.Boolean), Sy
     Bridge.define('System.Collections.Generic.IEnumerator$1', function (T) {
         return {
             inherits: [System.Collections.IEnumerator],
-            $kind: "interface"
+            $kind: "interface",
+            $variance: [1]
         };
     });
 
     Bridge.define('System.Collections.Generic.IEnumerable$1', function (T) {
         return {
             inherits: [System.Collections.IEnumerable],
-            $kind: "interface"
+            $kind: "interface",
+            $variance: [1]
         };
     });
 
@@ -11896,7 +11920,8 @@ Bridge.Class.addExtend(System.Boolean, [System.IComparable$1(System.Boolean), Sy
 
     Bridge.define('System.Collections.Generic.IEqualityComparer$1', function (T) {
         return {
-            $kind: "interface"
+            $kind: "interface",
+            $variance: [2]
         };
     });
 
@@ -11916,7 +11941,8 @@ Bridge.Class.addExtend(System.Boolean, [System.IComparable$1(System.Boolean), Sy
 
     Bridge.define('System.Collections.Generic.IComparer$1', function (T) {
         return {
-            $kind: "interface"
+            $kind: "interface",
+            $variance: [2]
         };
     });
 

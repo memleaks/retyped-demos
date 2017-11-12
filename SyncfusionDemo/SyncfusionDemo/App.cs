@@ -43,7 +43,7 @@ namespace SyncfusionDemo
         /// <summary>
         /// This method maps original jQuery interface to Syncfusion jQuery extension.
         /// </summary>
-        public static ej_web_all.JQuery ej(this jquery.JQuery.Interface jquery)
+        public static ej_web_all.JQuery ej(this jquery.JQuery jquery)
         {
             return jquery.As<ej_web_all.JQuery>();
         }
@@ -51,7 +51,7 @@ namespace SyncfusionDemo
         /// <summary>
         /// Another mapping, helping to make the syntax even cleaner
         /// </summary>
-        public static ej_web_all.JQuery ej(this JQueryStatic.Interface jquery, string selector)
+        public static ej_web_all.JQuery ej(this JQueryStatic jquery, string selector)
         {
             return jQuery.select(selector).ej();
         }

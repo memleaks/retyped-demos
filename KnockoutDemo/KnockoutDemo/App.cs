@@ -3,8 +3,8 @@ using Bridge.Html5;
 using Newtonsoft.Json;
 using System;
 using static Retyped.knockout;
-using ObservableString = Retyped.knockout.KnockoutObservable<string>.Interface;
-using ComputedString = Retyped.knockout.KnockoutComputed<string>.Interface;
+//using ObservableString = Retyped.knockout.KnockoutObservable<string>;
+using ComputedString = Retyped.knockout.KnockoutComputed<string>;
 
 namespace KnockoutDemo
 {
@@ -22,9 +22,9 @@ namespace KnockoutDemo
     // Here's my data model
     public class ViewModel
     {
-        public ObservableString firstName { get; set; }
+        public Retyped.knockout.KnockoutObservable<string> firstName { get; set; }
 
-        public ObservableString lastName { get; set; }
+        public Retyped.knockout.KnockoutObservable<string> lastName { get; set; }
 
         public ComputedString fullName { get; set; }
 
