@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Retyped Phaser demo</title>
+
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.js'></script>
+    <script src="js/bridge.js"></script>
+    <script src="js/PhaserDemo.js"></script>
+    
+    <style>
+        html, body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #sampleButtons {
+            margin: 10px;
+        }
+
+        #sample1Btn, #sample2Btn, #sample3Btn {
+            margin: 5px;
+        }
+
+        #phaserRoot {
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="sampleButtons">
+        <button id="sample1Btn">Move Einstein</button>
+        <button id="sample2Btn">Accelerate To Object</button>
+        <button id="sample3Btn">Invaders Game</button>
+    </div>
+
+    <div id="phaserRoot">
+    </div>
+
+</body>
+</html>
