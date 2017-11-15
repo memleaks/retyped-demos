@@ -33,9 +33,11 @@ namespace PhaserDemo
             for (var i = 0; i < btns.Length; i++)
             {
                 var index = i;
+                
                 btns[i].onclick = e =>
                 {
                     SwitchGameTo(index + 1);
+
                     return null;
                 };
             }
@@ -60,14 +62,17 @@ namespace PhaserDemo
             {
                 case 1:
                     var state1 = new GameState1();
-                    return new Game(800, 600, Phaser.AUTO, "phaserRoot", state1);
 
+                    return new Game(800, 600, Phaser.AUTO, "phaserRoot", state1);
+                    
                 case 2:
                     var state2 = new GameState2();
+
                     return new Game(800, 600, Phaser.AUTO, "phaserRoot", state2);
 
                 case 3:
                     var state3 = new GameState3();
+
                     return new Game(800, 600, Phaser.AUTO, "phaserRoot", state3);
 
                 default:

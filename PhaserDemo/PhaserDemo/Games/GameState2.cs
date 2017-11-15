@@ -29,6 +29,7 @@ namespace PhaserDemo.Games
             for (var i = 0; i < 10; i++)
             {
                 var bullet = _bullets.create(game.rnd.integerInRange(200, 1700), game.rnd.integerInRange(-200, 400), "tinycar");
+
                 game.physics.p2.enable(bullet, false);
             }
 
@@ -56,6 +57,7 @@ namespace PhaserDemo.Games
             {
                 shipBody.setZeroRotation();
             }
+            
             if (_cursors.up.isDown)
             {
                 shipBody.thrust(400);
