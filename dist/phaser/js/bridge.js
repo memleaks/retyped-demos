@@ -98,6 +98,7 @@
             }
 
             if (Bridge.isArray(o)) {
+                var arr = [];
                 for (var i = 0; i < o.length; i++) {
                     var item = o[i];
 
@@ -112,8 +113,9 @@
                         item = item.$clone();
                     }
 
-                    o[i] = item;
+                    arr[i] = item;
                 }
+                o = arr;
             }
 
             if (o && !noclone && o.$clone) {
@@ -2091,22 +2093,8 @@
                                     m = prototype[name];
                                 }
 
-                                if (!Bridge.isFunction(m)) {
-                                    descriptor = {
-                                        get: function () {
-                                            return this[name];
-                                        },
-
-                                        set: function (value) {
-                                            this[name] = value;
-                                        }
-                                    };
-                                    Object.defineProperty(obj, alias, descriptor);
-                                    aliases.push({ alias: alias, descriptor: descriptor });
-                                } else {
-                                    scope[alias] = m;
-                                    aliases.push({ fn: name, alias: alias });
-                                }                                
+                                scope[alias] = m;
+                                aliases.push({ fn: name, alias: alias });
                             }
                         }
                     })(statics ? scope : prototype, config.alias[i], config.alias[i + 1], cls);
@@ -9967,7 +9955,7 @@ Bridge.Class.addExtend(System.Boolean, [System.IComparable$1(System.Boolean), Sy
         },
 
         equals: function (other) {
-            return Bridge.is(other, System.TimeSpan) ? other.ticks.eq(this.ticks) : false;
+            return other.ticks.eq(this.ticks);
         },
 
         equalsT: function (other) {
