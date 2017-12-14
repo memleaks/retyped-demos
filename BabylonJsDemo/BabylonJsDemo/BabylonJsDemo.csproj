@@ -66,19 +66,19 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.babylon.js, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.babylon.js.0.1.6532\lib\net40\Retyped.babylon.js.dll</HintPath>
+      <HintPath>..\..\packages\Retyped.babylon.js.0.1.6556\lib\net40\Retyped.babylon.js.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Retyped.Core, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.Core.1.3.6532\lib\net40\Retyped.Core.dll</HintPath>
+    <Reference Include="Retyped.Core, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Retyped.Core.1.4.6556\lib\net40\Retyped.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.dom, Version=2.3.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.dom.2.3.6532\lib\net40\Retyped.dom.dll</HintPath>
+      <HintPath>..\..\packages\Retyped.dom.2.3.6556\lib\net40\Retyped.dom.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.es5, Version=2.3.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.es5.2.3.6532\lib\net40\Retyped.es5.dll</HintPath>
+      <HintPath>..\..\packages\Retyped.es5.2.3.6556\lib\net40\Retyped.es5.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

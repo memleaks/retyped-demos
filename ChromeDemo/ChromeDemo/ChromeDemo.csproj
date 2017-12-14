@@ -72,31 +72,31 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.chrome, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.chrome.0.1.6532\lib\net40\Retyped.chrome.dll</HintPath>
+      <HintPath>..\..\packages\Retyped.chrome.0.1.6556\lib\net40\Retyped.chrome.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Retyped.Core, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.Core.1.3.6532\lib\net40\Retyped.Core.dll</HintPath>
+    <Reference Include="Retyped.Core, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Retyped.Core.1.4.6556\lib\net40\Retyped.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.dom, Version=2.3.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.dom.2.3.6532\lib\net40\Retyped.dom.dll</HintPath>
+      <HintPath>..\..\packages\Retyped.dom.2.3.6556\lib\net40\Retyped.dom.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.es5, Version=2.3.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.es5.2.3.6532\lib\net40\Retyped.es5.dll</HintPath>
+      <HintPath>..\..\packages\Retyped.es5.2.3.6556\lib\net40\Retyped.es5.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.filesystem, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.filesystem.0.1.6532\lib\net40\Retyped.filesystem.dll</HintPath>
+      <HintPath>..\..\packages\Retyped.filesystem.0.1.6556\lib\net40\Retyped.filesystem.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.filewriter, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.filewriter.0.1.6532\lib\net40\Retyped.filewriter.dll</HintPath>
+      <HintPath>..\..\packages\Retyped.filewriter.0.1.6556\lib\net40\Retyped.filewriter.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.jquery, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.jquery.2.0.6532\lib\net40\Retyped.jquery.dll</HintPath>
+      <HintPath>..\..\packages\Retyped.jquery.2.0.6556\lib\net40\Retyped.jquery.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

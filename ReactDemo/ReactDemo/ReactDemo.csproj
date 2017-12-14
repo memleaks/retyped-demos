@@ -55,24 +55,24 @@
       <HintPath>..\..\packages\Bridge.Html5.16.5.0\lib\net40\Bridge.Html5.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Retyped.Core, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.Core.1.3.6532\lib\net40\Retyped.Core.dll</HintPath>
+    <Reference Include="Retyped.Core, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Retyped.Core.1.4.6556\lib\net40\Retyped.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.dom, Version=2.3.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.dom.2.3.6532\lib\net40\Retyped.dom.dll</HintPath>
+      <HintPath>..\..\packages\Retyped.dom.2.3.6556\lib\net40\Retyped.dom.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.es5, Version=2.3.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.es5.2.3.6532\lib\net40\Retyped.es5.dll</HintPath>
+      <HintPath>..\..\packages\Retyped.es5.2.3.6556\lib\net40\Retyped.es5.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.react, Version=15.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.react.15.0.6532\lib\net40\Retyped.react.dll</HintPath>
+      <HintPath>..\..\packages\Retyped.react.15.0.6556\lib\net40\Retyped.react.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.react-dom, Version=15.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.react-dom.15.5.6532\lib\net40\Retyped.react-dom.dll</HintPath>
+      <HintPath>..\..\packages\Retyped.react-dom.15.5.6556\lib\net40\Retyped.react-dom.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
