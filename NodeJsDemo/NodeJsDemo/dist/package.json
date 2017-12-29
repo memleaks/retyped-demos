@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Retyped Express + NodeJS Demo",
+  "main": "bridge/NodeJsDemo.js",
+  "author": "Object.NET, Inc. <hello@object.net>",
+  "private": true,
+  "scripts": {
+    "dev": "node ./bridge/NodeJsDemo.js"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-serve-static-core": "^0.1.1",
+    "node": "^9.3.0"
+  },
+  "devDependencies": {}
+}
