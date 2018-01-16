@@ -27,6 +27,9 @@ namespace SvgJsDemo
                 RenderAnimation();
                 return true;
             };
+
+            // Render Pong Game by default
+            RenderPongGame();
         }
 
         private static void RenderPongGame()
