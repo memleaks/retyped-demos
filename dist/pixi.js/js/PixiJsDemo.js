@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2017
- * @compiler Bridge.NET 16.6.0
+ * @compiler Bridge.NET 16.6.1
  */
 Bridge.assembly("PixiJsDemo", function ($asm, globals) {
     "use strict";
