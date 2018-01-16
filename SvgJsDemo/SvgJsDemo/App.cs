@@ -45,7 +45,7 @@ namespace SvgJsDemo
 
             // Add Label:
             var label = new HTMLLabelElement();
-            label.innerHTML = "Hit SPACE to start. Use ARROWS to control the pad.";
+            label.innerHTML = "You are Red. Hit SPACE to start. Use ARROWS to control the pad.";
 
             // Add root Div to the Document
             _rootDiv = new HTMLDivElement();
