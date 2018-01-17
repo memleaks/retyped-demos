@@ -95,7 +95,6 @@ namespace SvgJsDemo
                     family = "Menlo, sans-serif",
                     anchor = "end",
                     style = "color:#fff"
-                    //fill = "#fff" //TODO: up
                 }).Value.move(width / 2 - 10, 10);
 
             // cloning rocks!
@@ -290,7 +289,14 @@ namespace SvgJsDemo
             });
         }
 
-        // TODO: Retyped issue: SVGjs Color's New methods should be translated into constructors
+        /// <summary>
+        /// Creates an instance of <see cref="svgjs.Color"/>>.
+        /// </summary>
+        /// <remarks>
+        /// SVG.js types are incorrect, they provide no way of instantiating Color.
+        /// new() methods are placed in the instance part of the class, so they require instance already be created.
+        /// https://github.com/objectdotnet/Retyped.Input/blob/4749a4368ab29f7a87205c55f4c7cb06ca340224/s/svg.js/index.d.ts#L143-L144
+        /// </remarks>
         [Template("new svgjs.Color({0})")]
         private static extern svgjs.Color CreateColor(string color);
     }
