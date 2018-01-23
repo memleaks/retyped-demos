@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2017
- * @compiler Bridge.NET 16.6.1
+ * @compiler Bridge.NET 16.7.0
  */
 Bridge.assembly("PhaserDemo", function ($asm, globals) {
     "use strict";

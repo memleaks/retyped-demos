@@ -1,5 +1,5 @@
 /**
- * @version   : 16.6.1 - Bridge.NET
+ * @version   : 16.7.0 - Bridge.NET
  * @author    : Object.NET, Inc. http://bridge.net/
  * @copyright : Copyright 2008-2018 Object.NET, Inc. http://object.net/
  * @license   : See license.txt and https://github.com/bridgedotnet/Bridge/blob/master/LICENSE.md
@@ -1178,9 +1178,9 @@
             return typeof value === "string";
         },
 
-        unroll: function (value) {
+        unroll: function (value, scope) {
             var d = value.split("."),
-                o = Bridge.global[d[0]],
+                o = (scope || Bridge.global)[d[0]],
                 i = 1;
 
             for (i; i < d.length; i++) {
@@ -2448,6 +2448,10 @@
             Class.$$name = className;
             Class.$kind = prop.$kind;
 
+            if (prop.$metadata) {
+                Class.$metadata = prop.$metadata;
+            }
+
             if (gCfg && isGenericInstance) {
                 Class.$genericTypeDefinition = gCfg.fn;
                 Class.$typeArguments = gCfg.args;
@@ -3016,6 +3020,19 @@
         },
 
         init: function (fn) {
+            if (Bridge.Reflection) {
+                var metas = Bridge.Reflection.deferredMeta,
+                len = metas.length;
+
+                if (len > 0) {
+                    Bridge.Reflection.deferredMeta = [];
+                    for (var i = 0; i < len; i++) {
+                        var item = metas[i];
+                        Bridge.setMetadata(item.typeName, item.metadata);
+                    }
+                }
+            }
+
             if (fn) {
                 var old = Bridge.Class.staticInitAllow;
                 Bridge.Class.staticInitAllow = true;
@@ -3174,16 +3191,28 @@
     // @source systemAssemblyVersion.js
 
     Bridge.init(function () {
-        Bridge.SystemAssembly.version = "16.6.1";
-        Bridge.SystemAssembly.compiler = "16.6.1";
+        Bridge.SystemAssembly.version = "16.7.0";
+        Bridge.SystemAssembly.compiler = "16.7.0";
     });
 
     Bridge.define("Bridge.Utils.SystemAssemblyVersion");
 
     // @source Reflection.js
 
-    Bridge.Reflection = {
+Bridge.Reflection = {
+        deferredMeta: [],
+
         setMetadata: function (type, metadata) {
+            if (Bridge.isString(type)) {
+                var typeName = type;
+                type = Bridge.unroll(typeName);
+
+                if (type == null) {
+                    Bridge.Reflection.deferredMeta.push({ typeName: typeName, metadata: metadata });
+                    return;
+                }
+            }
+
             type.$getMetadata = Bridge.Reflection.getMetadata;
             type.$metadata = metadata;
         },
@@ -3775,6 +3804,7 @@
 
         canAcceptNull: function (type) {
             if (type.$kind === "struct" ||
+                type.$kind === "enum" ||
                 type === System.Decimal ||
                 type === System.Int64 ||
                 type === System.UInt64 ||
@@ -3787,6 +3817,8 @@
                 type === System.Int32 ||
                 type === System.UInt32 ||
                 type === Bridge.Int ||
+                type === System.Boolean ||
+                type === System.DateTime ||
                 type === Boolean ||
                 type === Date ||
                 type === Number) {
@@ -4059,13 +4091,20 @@
                 }
             }
 
-            if (mi.box) {
-                var unboxed = method;
-                method = function() {
-                    var v = unboxed.apply(this, arguments);
-                    return v != null ? mi.box(v) : v;
-                };
-            }
+            var orig = method;
+            method = function () {
+                var args = [],
+                    params = mi.pi || [],
+                    p;
+
+                for (var i = 0; i < arguments.length; i++) {
+                    p = params[i] || params[params.length - 1];
+                    args[i] = p && p.pt === System.Object ? arguments[i] : Bridge.unbox(arguments[i]);
+                }
+
+                var v = orig.apply(this, args);
+                return v != null && mi.box ? mi.box(v) : v;
+            };
 
             return bind !== false ? Bridge.fn.bind(target, method) : method;
         },
@@ -4123,6 +4162,10 @@
             }
 
             return false;
+        },
+
+        isValueType: function (type) {
+            return !Bridge.Reflection.canAcceptNull(type);
         }
     };
 
@@ -4584,10 +4627,10 @@
         },
 
         tryParse: function (enumType, value, result, ignoreCase) {
-            result.v = 0;
             result.v = Bridge.unbox(enumMethods.parse(enumType, value, ignoreCase, true), true);
 
             if (result.v == null) {
+                result.v = 0;
                 return false;
             }
 
@@ -6320,6 +6363,9 @@ Bridge.Class.addExtend(System.Boolean, [System.IComparable$1(System.Boolean), Sy
         statics: {
             $number: true,
 
+            MAX_SAFE_INTEGER: Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1,
+            MIN_SAFE_INTEGER: Number.MIN_SAFE_INTEGER || -(Math.pow(2, 53) - 1),
+
             $is: function (instance) {
                 return typeof (instance) === "number" && isFinite(instance) && Math.floor(instance, 0) === instance;
             },
@@ -7410,7 +7456,7 @@ Bridge.Class.addExtend(System.Boolean, [System.IComparable$1(System.Boolean), Sy
     };
 
     System.Int64.prototype.toJSON = function () {
-        return this.toNumber();
+        return this.gt(Bridge.Int.MAX_SAFE_INTEGER) || this.lt(Bridge.Int.MIN_SAFE_INTEGER) ? this.toString() : this.toNumber();
     };
 
     System.Int64.prototype.toString = function (format, provider) {
@@ -7920,7 +7966,6 @@ Bridge.Class.addExtend(System.Boolean, [System.IComparable$1(System.Boolean), Sy
         return System.UInt64.create(l);
     };
 
-    System.UInt64.prototype.toJSON = System.Int64.prototype.toJSON;
     System.UInt64.prototype.toString = System.Int64.prototype.toString;
     System.UInt64.prototype.format = System.Int64.prototype.format;
     System.UInt64.prototype.isNegative = System.Int64.prototype.isNegative;
@@ -8042,6 +8087,10 @@ Bridge.Class.addExtend(System.Boolean, [System.IComparable$1(System.Boolean), Sy
         var remainder = a.mod(b);
         result.v = remainder;
         return a.sub(remainder).div(b);
+    };
+
+    System.UInt64.prototype.toJSON = function () {
+        return this.gt(Bridge.Int.MAX_SAFE_INTEGER) ? this.toString() : this.toNumber();
     };
 
     System.UInt64.prototype.and = System.Int64.prototype.and;
@@ -9932,11 +9981,19 @@ Bridge.Class.addExtend(System.Boolean, [System.IComparable$1(System.Boolean), Sy
             },
 
             eq: function (t1, t2) {
-                return Bridge.hasValue$1(t1, t2) ? (t1.ticks.eq(t2.ticks)) : null;
+                if (t1 === null && t2 === null) {
+                    return true;
+                }
+
+                return Bridge.hasValue$1(t1, t2) ? (t1.ticks.eq(t2.ticks)) : false;
             },
 
             neq: function (t1, t2) {
-                return Bridge.hasValue$1(t1, t2) ? (t1.ticks.ne(t2.ticks)) : null;
+                if (t1 === null && t2 === null) {
+                    return false;
+                }
+
+                return Bridge.hasValue$1(t1, t2) ? (t1.ticks.ne(t2.ticks)) : true;
             },
 
             plus: function (t) {
@@ -10798,7 +10855,7 @@ Bridge.Class.addExtend(System.Boolean, [System.IComparable$1(System.Boolean), Sy
         },
 
         getRank: function (arr) {
-            return arr.$s ? arr.$s.length : 1;
+            return arr.$type ? arr.$type.$rank : (arr.$s ? arr.$s.length : 1);
         },
 
         getLower: function (arr, d) {
@@ -10972,7 +11029,13 @@ Bridge.Class.addExtend(System.Boolean, [System.IComparable$1(System.Boolean), Sy
             } else {
                 newArr = arr.slice(0);
             }
+
             newArr.$type = arr.$type;
+            newArr.$v = arr.$v;
+            newArr.$s = arr.$s;
+            newArr.get = System.Array.$get;
+            newArr.set = System.Array.$set;
+
             return newArr;
         },
 
@@ -17639,6 +17702,26 @@ Bridge.assembly("System", {}, function ($asm, globals) {
         "use strict";
 
         Bridge.define("System.Uri", {
+            statics: {
+                methods: {
+                    equals: function (uri1, uri2) {
+                        if (uri1 == uri2) {
+                            return true;
+                        }
+
+                        if (uri1 == null || uri2 == null) {
+                            return false;
+                        }
+
+                        return uri2.equals(uri1);
+                    },
+
+                    notEquals: function (uri1, uri2) {
+                        return !System.Uri.equals(uri1, uri2);
+                    }
+                }
+            },
+
             ctor: function (uriString) {
                 this.$initialize();
                 this.absoluteUri = uriString;
@@ -17650,6 +17733,18 @@ Bridge.assembly("System", {}, function ($asm, globals) {
 
             toJSON: function () {
                 return this.absoluteUri;
+            },
+
+            toString: function () {
+                return this.absoluteUri;
+            },
+
+            equals: function (uri) {
+                if (uri == null || !Bridge.is(uri, System.Uri)) {
+                    return false;
+                }
+
+                return this.absoluteUri === uri.absoluteUri;
             }
         });
     }, true);
@@ -21477,7 +21572,7 @@ Bridge.assembly("System", {}, function ($asm, globals) {
             if (!Bridge.isDefined(useCache)) {
                 useCache = false;
             }
-            
+
             var scope = System.Text.RegularExpressions;
 
             if (pattern == null) {
@@ -21806,7 +21901,7 @@ Bridge.assembly("System", {}, function ($asm, globals) {
                     get: function() {
                         return this._capcount;
                     }
-                }    
+                }
             },
 
             alias: [
