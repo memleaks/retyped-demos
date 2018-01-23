@@ -43,13 +43,11 @@
     <None Include="bridge.json" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="bin\Debug\bridge\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\..\dist\knockout\index.html">
-      <Link>index.html</Link>
-    </Content>
+    <Content Include="dist\bridge\bridge.js" />
+    <Content Include="dist\bridge\KnockoutDemo.js" />
+    <Content Include="dist\index.html" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Bridge, Version=16.7.0.0, Culture=neutral, processorArchitecture=MSIL">

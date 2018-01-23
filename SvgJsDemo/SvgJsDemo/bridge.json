@@ -3,7 +3,7 @@
 
 {
   // The folder to output JavaScript (.js) files.
-  "output": "../../dist/svg.js/bridge/",
+  "output": "./dist/bridge/",
 
   "html": {
     "disabled": true
@@ -17,13 +17,13 @@
   // Enable the Bridge Console.
   // Default is false.
   "console": {
-    "enabled": true
+    "enabled": false
   },
 
   // Enable browser debugging of C# files.
   // Default is false.
   "sourceMap": {
-    "enabled": true
+    "enabled": false
   },
 
   // Set to true to disable Reflection metadata generation.

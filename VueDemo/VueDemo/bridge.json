@@ -3,7 +3,7 @@
 
 {
   // The folder to output JavaScript (.js) files.
-  "output": "package/src/",
+  "output": "./dist/bridge/",
 
   "html": {
     "disabled": true
@@ -29,8 +29,8 @@
   // Set to true to disable Reflection metadata generation.
   // Default is false.
   "reflection": {
-    "enabled": true,
-    //"target": "Inline", 
+    "disabled": false
+    //"target": "Inline",
   },
 
   // Generate TypeScript Definition (.d.ts) files.

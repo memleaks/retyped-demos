@@ -47,7 +47,7 @@
   <ItemGroup>
     <None Include="bridge.json" />
     <None Include="packages.config" />
-    <None Include="package\index.html" />
+    <None Include="dist\index.html" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Bridge, Version=16.7.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -80,11 +80,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="package\require.js" />
-    <Content Include="package\src\bridge.js" />
-    <Content Include="package\src\VueDemo.js" />
-    <Content Include="package\src\VueDemo.meta.js" />
-    <Content Include="package\vue.js" />
+    <Content Include="dist\bridge\bridge.js" />
+    <Content Include="dist\bridge\VueDemo.js" />
+    <Content Include="dist\bridge\VueDemo.meta.js" />
+    <Content Include="dist\require.js" />
+    <Content Include="dist\vue.js" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
