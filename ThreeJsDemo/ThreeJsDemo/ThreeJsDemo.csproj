@@ -80,8 +80,8 @@
       <HintPath>..\..\packages\Retyped.es5.2.3.6556\lib\net40\Retyped.es5.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Retyped.three">
-      <HintPath>..\..\packages\Retyped.three.0.84.6598-alpha0727\lib\net40\Retyped.three.dll</HintPath>
+    <Reference Include="Retyped.three, Version=0.84.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Retyped.three.0.84.6598\lib\net40\Retyped.three.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.webvr-api">
