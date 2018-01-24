@@ -42,4 +42,8 @@ RD /S /Q .\dist\vue
 MD .\dist\vue
 XCOPY .\VueDemo\VueDemo\dist\* .\dist\vue /S /I
 
+RD /S /Q .\dist\three.js
+MD .\dist\three.js
+XCOPY .\ThreeJsDemo\ThreeJsDemo\dist\* .\dist\three.js /S /I
+
 PAUSE
