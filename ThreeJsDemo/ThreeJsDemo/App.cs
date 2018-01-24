@@ -16,6 +16,7 @@ namespace ThreeJsDemo
     /// </summary>
     public class App
     {
+        private static HTMLElement container;
         private static PerspectiveCamera camera;
         private static Scene scene;
         private static AnimationMixer mixer;
@@ -31,13 +32,16 @@ namespace ThreeJsDemo
             Animate();
         }
 
-        public static void Init()
+        private static void Init()
         {
-            var container = document.createElement("div");
+            container = document.createElement("div");
             document.body.appendChild(container);
 
             //
-            camera = new PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000)
+            var height = GetAvailableHeight();
+            var width = window.innerWidth;
+
+            camera = new PerspectiveCamera(50, width / height, 1, 10000)
             {
                 position = {y = 300}
             };
@@ -78,21 +82,16 @@ namespace ThreeJsDemo
             //
             renderer = new WebGLRenderer();
             renderer.setPixelRatio(window.devicePixelRatio);
-            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setSize(width, height);
             container.appendChild(renderer.domElement);
           
             //
             window.addEventListener("resize", e => OnWindowResize(), false);
         }
 
-        public static void OnWindowResize()
+        private static void OnWindowResize()
         {
-            // Original version:
-            // var height = window.innerHeight;
-
-            // Retyped version: to respect WebSite header/footer:
-            var height = window.innerHeight - 2 * renderer.domElement.offsetTop - 2; // offsetTop represents height of header (= footer), 2 - borders
-
+            var height = GetAvailableHeight();
             var width = window.innerWidth;
 
             camera.aspect = width / height;
@@ -100,13 +99,13 @@ namespace ThreeJsDemo
             renderer.setSize(width, height);
         }
 
-        public static void Animate()
+        private static void Animate()
         {
             requestAnimationFrame(new Action(Animate).As<FrameRequestCallback>());
             Render();
         }
 
-        public static void Render()
+        private static void Render()
         {
             theta += 0.1;
             camera.position.x = radius * Math.sin(three.Math.degToRad(theta));
@@ -121,6 +120,22 @@ namespace ThreeJsDemo
                 prevTime = time;
             }
             renderer.render(scene, camera);
+        }
+
+        private static double GetAvailableHeight()
+        {
+            // Original version:
+            var height = window.innerHeight;
+
+            // Adjust height to respect Retyped Ddemos WebSite layout:
+
+            // offsetTop represents height of header (= footer)
+            height -= 2 * container.offsetTop; // offsetTop represents height of the header (= height of the footer)
+
+            // Respect the borders:
+            height -= 2;
+
+            return height;
         }
     }
 }
