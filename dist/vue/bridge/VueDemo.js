@@ -6,7 +6,7 @@
 Bridge.assembly("VueDemo", function ($asm, globals) {
     "use strict";
 
-    require(["vue.js"], function (vue_js) {
+    require(["vue"], function (vue) {
         /** @namespace System */
     
         /**
@@ -172,7 +172,7 @@ Bridge.assembly("VueDemo", function ($asm, globals) {
     
         Bridge.define("VueDemo.Index", {
             main: function Main () {
-                var v = new vue_js(new VueDemo.Components.RootCmp("#app"));
+                var v = new vue(new VueDemo.Components.RootCmp("#app"));
             }
         });
     
