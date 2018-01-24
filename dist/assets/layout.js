@@ -99,7 +99,7 @@ function setStyle() {
 
 function setHeader(libName, prjName) {
     var header = document.createElement("header");
-    header.class = "navbar";
+    header.className = "navbar";
 
     header.innerHTML = `
         <div class ="logo-container d-flex align-items-center">
@@ -117,7 +117,7 @@ function setHeader(libName, prjName) {
 
 function setFooter() {
     var footer = document.createElement("footer");
-    footer.class = "site-footer";
+    footer.className = "site-footer";
 
     footer.innerHTML = `
         <p class ="mb-0">
