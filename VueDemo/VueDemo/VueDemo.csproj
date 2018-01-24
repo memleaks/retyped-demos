@@ -75,7 +75,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.vue, Version=2.4.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Retyped.vue.2.4.6597\lib\net40\Retyped.vue.dll</HintPath>
+      <HintPath>..\..\packages\Retyped.vue.2.4.6598\lib\net40\Retyped.vue.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
