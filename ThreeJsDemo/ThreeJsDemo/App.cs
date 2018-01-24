@@ -28,7 +28,7 @@ namespace ThreeJsDemo
         public static void Main()
         {
             Init();
-            animate();
+            Animate();
         }
 
         public static void Init()
@@ -37,13 +37,17 @@ namespace ThreeJsDemo
             document.body.appendChild(container);
 
             //
-            camera = new PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000);
-            camera.position.y = 300;
+            camera = new PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000)
+            {
+                position = {y = 300}
+            };
             cameraTarget = new Vector3(0, 150, 0);
 
-            scene = new Scene();
-            scene.background = new Color(0xf0f0f0);
-           
+            scene = new Scene
+            {
+                background = new Color(0xf0f0f0)
+            };
+
             //
             var light = new DirectionalLight(0xefefff, 1.5);
             light.position.set(1, 1, 1).normalize();
@@ -54,7 +58,7 @@ namespace ThreeJsDemo
             scene.add(light);
 
             var loader = new JSONLoader();
-            loader.load("https://raw.githubusercontent.com/mrdoob/three.js/master/examples/models/animated/horse.js", (geometry, materials) =>
+            loader.load("https://raw.githubusercontent.com/Retyped/Demos/master/ThreeJsDemo/ThreeJsDemo/dist/models/horse.js", (geometry, materials) =>
             {
                 var mesh = new Mesh(geometry, new MeshLambertMaterial(new MeshLambertMaterialParameters
                 {
@@ -78,23 +82,23 @@ namespace ThreeJsDemo
             container.appendChild(renderer.domElement);
           
             //
-            window.addEventListener("resize", e => onWindowResize(), false);
+            window.addEventListener("resize", e => OnWindowResize(), false);
         }
 
-        public static void onWindowResize()
+        public static void OnWindowResize()
         {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         }
 
-        public static void animate()
+        public static void Animate()
         {
-            requestAnimationFrame(new Action(animate).As<FrameRequestCallback>());
-            render();
+            requestAnimationFrame(new Action(Animate).As<FrameRequestCallback>());
+            Render();
         }
 
-        public static void render()
+        public static void Render()
         {
             theta += 0.1;
             camera.position.x = radius * Math.sin(three.Math.degToRad(theta));
