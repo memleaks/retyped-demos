@@ -3,10 +3,144 @@
 <head>
     <meta charset="utf-8" />
     <title>Retyped Dragula Demo</title>
-    <script src="../assets/layout.js" LibName="Dragula" ProjName="DragulaDemo"></script>
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.css" rel="stylesheet" />
     <link href="https://bevacqua.github.io/dragula/example/example.css" rel="stylesheet" />
+    
+    <style>
+        .navbar {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            margin-bottom: 3rem;
+            height: 6.25rem;
+            border-bottom: 1px solid var(--gray-300);
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+
+            margin: 0;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            background-color: #fff;
+            box-sizing: inherit;
+            -webkit-tap-highlight-color: transparent;
+            --brand-primary: #1fb6ff;
+            --gray-300: #d9e1e8;
+            --gray-600: #99afc1;
+            --gray-900: #14263a;
+            justify-content: space-between;
+            padding: .5rem 1rem;
+            flex-wrap: wrap;
+            display: flex;
+        }
+
+        .navbar a {
+            color: #007bff;
+            text-decoration: none;
+            background-color: transparent;
+        }
+
+        .navbar .fork-on-github a {
+            position: absolute;
+            right: -48px;
+            top: 45px;
+            display: block;
+            width: 270px;
+            padding: 7px 30px;
+            background-color: var(--gray-900);
+            color: #fff;
+            text-align: center;
+            transform: rotate(45deg);
+            -webkit-transition: all .25s;
+            -moz-transition: all .25s;
+            transition: all .25s;
+            --gray-900: #14263a;
+        }
+
+        .align-items-center {
+            align-items: center !important;
+        }
+        .d-flex {
+            display: flex !important;
+        }
+
+
+        .navbar-brand {
+            display: inline-block;
+            padding-top: 0.3125rem;
+            padding-bottom: 0.3125rem;
+            margin-right: 1rem;
+            font-size: 1.25rem;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .navbar-brand:focus, .navbar-brand:hover {
+            text-decoration: none;
+        }
+
+        .sep {
+            font-weight: 300;
+        }
+
+        .site-title {
+            font-size: 20px;
+            font-weight: 300;
+        }
+
+        .sep,
+        .site-title {
+            margin-bottom: 5px;
+        }
+
+        .mr-3 {
+            margin-right: 1rem !important;
+        }
+
+        .ml-1 {
+            margin-left: 0.25rem !important;
+        }
+
+        .d-none {
+            display: none !important;
+        }
+
+        .d-sm-inline-block {
+            display: inline-block !important;
+        }
+
+        .mb-0 {
+            margin-bottom: 0 !important;
+        }
+
+        .site-footer {
+            height: 6.25rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--gray-300);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .875rem;
+            color: var(--gray-600);
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+            background-color: #fff;
+            color: #212529;
+        }
+
+        .site-footer a {
+            color: #007bff;
+            text-decoration: none;
+            background-color: transparent;
+        }
+
+    </style>
 
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.js'></script>
     <script src="bridge/bridge.js"></script>
@@ -14,14 +148,26 @@
 </head>
 <body>
 
-<h1><a href='https://github.com/bevacqua/dragula'><img src='https://bevacqua.github.io/dragula/resources/logo.svg' onerror='this.src = "https://bevacqua.github.io/dragula/resources/logo.svg"' alt='dragula'/></a>
+<header class="navbar">
+    <div class="d-flex align-items-center">
+        <a href="https://retyped.com/" class="navbar-brand">
+            <svg xmlns="http://www.w3.org/2000/svg" width="170" height="31.7" viewBox="0 0 170 31.7" overflow="scroll"><path d="M59.5 13.3c0 2.4-.9 3.9-2.8 4.6l3.8 5.3h-4.1l-3.3-4.7h-2.3v4.7h-3.3V8.4h5.6c2.3 0 4 .4 4.9 1.2 1 .8 1.5 2 1.5 3.7zm-4 1.8c.4-.4.6-1 .6-1.8s-.2-1.3-.6-1.6c-.4-.3-1.2-.4-2.2-.4h-2.5v4.4h2.4c1.1 0 1.9-.2 2.3-.6zM77.8 8.4v3h-7.4v3.1H77v2.8h-6.6v3.1H78v2.9H67.1V8.4h10.7zM91.5 11.3v12h-3.3v-12H84V8.4h11.7v2.9h-4.2zM108.8 23.3h-3.3v-5.9l-5.1-9h3.6l3.2 5.5 3.2-5.5h3.6l-5.1 9v5.9zM130 9.7c1 .9 1.6 2.2 1.6 4.1 0 1.8-.5 3.2-1.6 4-1.1.8-2.7 1.3-4.9 1.3h-2v4.1h-3.3V8.4h5.2c2.3 0 4 .5 5 1.3zm-2.4 5.9c.4-.4.6-1.1.6-2s-.3-1.5-.8-1.8c-.5-.4-1.3-.5-2.4-.5h-1.9v5h2.2c1.1 0 1.9-.3 2.3-.7zM149.1 8.4v3h-7.4v3.1h6.6v2.8h-6.6v3.1h7.6v2.9h-10.9V8.4h10.7zM167.9 10.4c1.4 1.3 2.1 3.1 2.1 5.4 0 2.3-.7 4.1-2.1 5.5-1.4 1.3-3.5 2-6.3 2h-5.1V8.4h5.2c2.7 0 4.8.7 6.2 2zm-2.5 8.8c.8-.8 1.2-1.9 1.2-3.3 0-1.5-.4-2.6-1.2-3.4-.8-.8-2.1-1.2-3.7-1.2h-1.8v9h2.1c1.5 0 2.6-.4 3.4-1.1z"/><g><path d="M27.8 0v27.8H0v3.9h31.7V0M3.9 3.9h19.9V0H0v23.8h3.9"/><path d="M7.8 19.9v3.9h16v-16h-3.9v12.1"/></g></svg>
+        </a>
+        <span class="sep mr-3 ml-1">|</span>
+        <span class="site-title"><a href="https://demos.retyped.com">Demos</a> > </span>
+        <span class="site-title">Dragula</span>
+    </div>
+    <span class="fork-on-github d-none d-sm-inline-block"><a href="https://github.com/Retyped/Demos/tree/master/DragulaDemo">Fork me on GitHub</a></span>
+</header>
+
+<h1 style="margin-top: 130px;"><a href='https://github.com/bevacqua/dragula'><img src='https://bevacqua.github.io/dragula/resources/logo.svg' onerror='this.src = "https://bevacqua.github.io/dragula/resources/logo.svg"' alt='dragula'/></a>
 </h1>
 <h3 class='tagline'>
     <span class='tagline-text'>Drag and drop so simple it hurts</span>
 </h3>
-    
+
 <h1>
-Retyped.dragula - Demo
+    Retyped.dragula - Demo
 </h1>
 <h3 class='tagline'>
     C# source available on <a href="https://github.com/Retyped/Demos/tree/master/DragulaDemo">GitHub</a>.<br/>
@@ -291,6 +437,11 @@ dragula3.Self(new Element[]
     </pre>
 </div>
 </div>
-
+<footer class="site-footer">
+    <p class="mb-0">&copy; 2008 - <span id="year"></span> <a href="http://object.net/">Object.NET, Inc.</a> All Rights Reserved</p>
+    <script>
+        document.querySelector("#year").innerText = new Date().getFullYear();
+    </script>
+</footer>
 </body>
 </html>

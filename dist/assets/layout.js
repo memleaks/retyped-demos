@@ -110,7 +110,7 @@ function setHeader(libName, prjName) {
             <span class ="site-title"><a href="https://demos.retyped.com">Demos</a> > </span>
             <span class ="site-title">${libName}</span>
         </div>
-        <span class ="fork-on-github d-none d-sm-inline-block"><a id="forkUrl" href="https://github.com/Retyped/Demos/tree/master/${prjName}">Fork me on GitHub</a></span>`;
+        <span class ="fork-on-github d-none d-sm-inline-block"><a href="https://github.com/Retyped/Demos/tree/master/${prjName}">Fork me on GitHub</a></span>`;
 
     document.body.insertBefore(header, document.body.firstChild);
 }
@@ -121,7 +121,7 @@ function setFooter() {
 
     footer.innerHTML = `
         <p class ="mb-0">
-            &copy; 2008 -${new Date().getFullYear()}</span> <a href="http://object.net/">Object.NET, Inc.</a> All Rights Reserved
+            &copy; 2008 - ${new Date().getFullYear()}</span> <a href="http://object.net/">Object.NET, Inc.</a> All Rights Reserved
         </p>`;
 
     document.body.appendChild(footer);
