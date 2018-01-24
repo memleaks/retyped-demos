@@ -87,9 +87,17 @@ namespace ThreeJsDemo
 
         public static void OnWindowResize()
         {
-            camera.aspect = window.innerWidth / window.innerHeight;
+            // Original version:
+            // var height = window.innerHeight;
+
+            // Retyped version: to respect WebSite header/footer:
+            var height = window.innerHeight - 2 * renderer.domElement.offsetTop - 2; // offsetTop represents height of header (= footer), 2 - borders
+
+            var width = window.innerWidth;
+
+            camera.aspect = width / height;
             camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setSize(width, height);
         }
 
         public static void Animate()
