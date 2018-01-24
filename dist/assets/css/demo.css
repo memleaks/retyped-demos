@@ -1,0 +1,104 @@
+:root {
+  --brand-primary: #1fb6ff;
+  --gray-300: #d9e1e8;
+  --gray-600: #99afc1;
+  --gray-900: #14263a;
+}
+
+
+/*---------------------------------------------------
+  Bootstrap Overrides and General Styles
+---------------------------------------------------*/
+
+a:hover {
+  text-decoration: none;
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.text-secondary {
+  color: var(--gray-600) !important;
+}
+
+
+/*---------------------------------------------------
+  Header / Navbar
+---------------------------------------------------*/
+
+.navbar {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-bottom: 3rem;
+  height: 6.25rem;
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.navbar-brand {
+  line-height: 1;
+}
+
+.sep {
+  font-weight: 300;
+}
+
+.site-title {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.sep,
+.site-title {
+  margin-bottom: 5px;
+}
+
+/* GitHub Ribbon */
+
+.fork-on-github {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  width: 10rem;
+  height: 10rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.fork-on-github a {
+  position: absolute;
+  left: -45px;
+  top: 45px;
+  display: block;
+  width: 270px;
+  padding: 7px 30px;
+  background-color: var(--gray-900);
+  color: #fff;
+  text-align: center;
+  transform: rotate(45deg);
+  -webkit-transition: all .25s;
+  -moz-transition: all .25s;
+  transition: all .25s;
+}
+
+.fork-on-github a:hover {
+  background-color: var(--brand-primary);
+}
+
+
+/*---------------------------------------------------
+  Footer
+---------------------------------------------------*/
+
+.site-footer {
+  height: 6.25rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--gray-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .875rem;
+  color: var(--gray-600);
+}

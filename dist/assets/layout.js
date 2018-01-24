@@ -90,7 +90,7 @@ function setStyle() {
 
     var link2 = document.createElement("link");
     link2.rel = "stylesheet";
-    link2.href = "../assets/css/main.css?1.0.0.0";
+    link2.href = "../assets/css/demo.css?1.0.0.0";
     link2.crossOrigin = "anonymous";
 
     document.head.appendChild(link1);
