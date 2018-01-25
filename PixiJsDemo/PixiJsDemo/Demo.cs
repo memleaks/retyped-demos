@@ -19,8 +19,9 @@ namespace PixiJsDemo
             var appOptions = ObjectLiteral.Create<IApplicationOptions>();
             appOptions.backgroundColor = 0x1099bb;
 
+            var rootEl = dom.document.querySelector("#root");
             app = new Application(800, 600, appOptions);
-            dom.document.body.appendChild(app.view);
+            rootEl.appendChild(app.view);
 
             // create a new Sprite from an image path
             texture = Texture.fromImage("https://raw.githubusercontent.com/pixijs/examples/gh-pages/required/assets/bunny.png");

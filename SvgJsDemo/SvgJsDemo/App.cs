@@ -10,9 +10,12 @@ namespace SvgJsDemo
     public class App
     {
         private static HTMLDivElement _rootDiv;
+        private static Element _content;
 
         public static void Main()
         {
+            _content = document.querySelector("#content");
+
             var btnPongGame = (HTMLButtonElement)document.querySelector("#btnPongGame");
             var btnAnimation = (HTMLButtonElement)document.querySelector("#btnAnimation");
 
@@ -36,7 +39,7 @@ namespace SvgJsDemo
         {
             if (_rootDiv != null)
             {
-                document.body.removeChild(_rootDiv);
+                _content.removeChild(_rootDiv);
             }
 
             // Create Div for SVG elements:
@@ -52,14 +55,14 @@ namespace SvgJsDemo
             _rootDiv.appendChild(svgDiv);
             _rootDiv.appendChild(label);
 
-            document.body.appendChild(_rootDiv);
+            _content.appendChild(_rootDiv);
         }
 
         private static void RenderAnimation()
         {
             if (_rootDiv != null)
             {
-                document.body.removeChild(_rootDiv);
+                _content.removeChild(_rootDiv);
             }
 
             // Create Input for text:
@@ -92,7 +95,7 @@ namespace SvgJsDemo
             _rootDiv.appendChild(input);
             _rootDiv.appendChild(svgDiv);
 
-            document.body.appendChild(_rootDiv);
+            _content.appendChild(_rootDiv);
         }
     }
 }
