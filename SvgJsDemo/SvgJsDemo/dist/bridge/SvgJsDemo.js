@@ -35,6 +35,7 @@ Bridge.assembly("SvgJsDemo", function ($asm, globals) {
                     _content: null
                 },
                 methods: {
+                    
                     RenderPongGame: function () {
                         if (SvgJsDemo.App._rootDiv != null) {
                             SvgJsDemo.App._content.removeChild(SvgJsDemo.App._rootDiv);
@@ -55,6 +56,7 @@ Bridge.assembly("SvgJsDemo", function ($asm, globals) {
     
                         SvgJsDemo.App._content.appendChild(SvgJsDemo.App._rootDiv);
                     },
+                    
                     RenderAnimation: function () {
                         var $t;
                         if (SvgJsDemo.App._rootDiv != null) {

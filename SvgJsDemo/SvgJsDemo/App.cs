@@ -35,6 +35,9 @@ namespace SvgJsDemo
             RenderPongGame();
         }
 
+        /// <summary>
+        /// Original sources: http://jsfiddle.net/wout/ncb3w5Lv/1/?utm_source=website&utm_medium=embed&utm_campaign=ncb3w5Lv
+        /// </summary>
         private static void RenderPongGame()
         {
             if (_rootDiv != null)
@@ -58,6 +61,9 @@ namespace SvgJsDemo
             _content.appendChild(_rootDiv);
         }
 
+        /// <summary>
+        /// Original sources: http://jsfiddle.net/wout/7wL1uv8n/?utm_source=website&utm_medium=embed&utm_campaign=7wL1uv8n
+        /// </summary>
         private static void RenderAnimation()
         {
             if (_rootDiv != null)

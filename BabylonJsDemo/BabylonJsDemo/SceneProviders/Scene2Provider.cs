@@ -1,10 +1,12 @@
-﻿using System;
-using Retyped;
+﻿using Retyped;
 
 using static Retyped.babylon_js.BABYLON;
 
 namespace BabylonJsDemo.SceneProviders
 {
+    /// <summary>
+    /// Original sources: http://www.babylonjs-playground.com/#NXXMR6
+    /// </summary>
     public class Scene2Provider : AbstractSceneProvider
     {
         public override Scene CreateScene(dom.HTMLCanvasElement canvas, Engine engine)

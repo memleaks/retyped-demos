@@ -84,6 +84,15 @@ Bridge.assembly("BabylonJsDemo", function ($asm, globals) {
 
     Bridge.define("BabylonJsDemo.SceneProviders.AbstractSceneProvider");
 
+    /** @namespace BabylonJsDemo.SceneProviders */
+
+    /**
+     * Original sources: http://www.babylonjs-playground.com/#12S23Y
+     *
+     * @public
+     * @class BabylonJsDemo.SceneProviders.Scene1Provider
+     * @augments BabylonJsDemo.SceneProviders.AbstractSceneProvider
+     */
     Bridge.define("BabylonJsDemo.SceneProviders.Scene1Provider", {
         inherits: [BabylonJsDemo.SceneProviders.AbstractSceneProvider],
         methods: {
@@ -120,6 +129,13 @@ Bridge.assembly("BabylonJsDemo", function ($asm, globals) {
         }
     });
 
+    /**
+     * Original sources: http://www.babylonjs-playground.com/#NXXMR6
+     *
+     * @public
+     * @class BabylonJsDemo.SceneProviders.Scene2Provider
+     * @augments BabylonJsDemo.SceneProviders.AbstractSceneProvider
+     */
     Bridge.define("BabylonJsDemo.SceneProviders.Scene2Provider", {
         inherits: [BabylonJsDemo.SceneProviders.AbstractSceneProvider],
         methods: {
@@ -192,6 +208,13 @@ Bridge.assembly("BabylonJsDemo", function ($asm, globals) {
         }
     });
 
+    /**
+     * Original sources: http://www.babylonjs-playground.com/#GJUMSZ
+     *
+     * @public
+     * @class BabylonJsDemo.SceneProviders.Scene3Provider
+     * @augments BabylonJsDemo.SceneProviders.AbstractSceneProvider
+     */
     Bridge.define("BabylonJsDemo.SceneProviders.Scene3Provider", {
         inherits: [BabylonJsDemo.SceneProviders.AbstractSceneProvider],
         methods: {
