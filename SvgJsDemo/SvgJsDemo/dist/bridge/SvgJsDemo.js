@@ -11,6 +11,8 @@ Bridge.assembly("SvgJsDemo", function ($asm, globals) {
     
         Bridge.define("SvgJsDemo.App", {
             main: function Main () {
+                SvgJsDemo.App._content = document.querySelector("#content");
+    
                 var btnPongGame = Bridge.cast(document.querySelector("#btnPongGame"), HTMLButtonElement);
                 var btnAnimation = Bridge.cast(document.querySelector("#btnAnimation"), HTMLButtonElement);
     
@@ -29,12 +31,13 @@ Bridge.assembly("SvgJsDemo", function ($asm, globals) {
             },
             statics: {
                 fields: {
-                    _rootDiv: null
+                    _rootDiv: null,
+                    _content: null
                 },
                 methods: {
                     RenderPongGame: function () {
                         if (SvgJsDemo.App._rootDiv != null) {
-                            document.body.removeChild(SvgJsDemo.App._rootDiv);
+                            SvgJsDemo.App._content.removeChild(SvgJsDemo.App._rootDiv);
                         }
     
                         // Create Div for SVG elements:
@@ -50,12 +53,12 @@ Bridge.assembly("SvgJsDemo", function ($asm, globals) {
                         SvgJsDemo.App._rootDiv.appendChild(svgDiv);
                         SvgJsDemo.App._rootDiv.appendChild(label);
     
-                        document.body.appendChild(SvgJsDemo.App._rootDiv);
+                        SvgJsDemo.App._content.appendChild(SvgJsDemo.App._rootDiv);
                     },
                     RenderAnimation: function () {
                         var $t;
                         if (SvgJsDemo.App._rootDiv != null) {
-                            document.body.removeChild(SvgJsDemo.App._rootDiv);
+                            SvgJsDemo.App._content.removeChild(SvgJsDemo.App._rootDiv);
                         }
     
                         // Create Input for text:
@@ -80,7 +83,7 @@ Bridge.assembly("SvgJsDemo", function ($asm, globals) {
                         SvgJsDemo.App._rootDiv.appendChild(input);
                         SvgJsDemo.App._rootDiv.appendChild(svgDiv);
     
-                        document.body.appendChild(SvgJsDemo.App._rootDiv);
+                        SvgJsDemo.App._content.appendChild(SvgJsDemo.App._rootDiv);
                     }
                 }
             }

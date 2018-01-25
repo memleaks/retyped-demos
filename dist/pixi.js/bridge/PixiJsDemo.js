@@ -30,8 +30,9 @@ Bridge.assembly("PixiJsDemo", function ($asm, globals) {
                 var appOptions = { };
                 appOptions.backgroundColor = 1087931;
 
+                var rootEl = document.querySelector("#root");
                 this.app = new PIXI.Application(800, 600, appOptions);
-                document.body.appendChild(this.app.view);
+                rootEl.appendChild(this.app.view);
 
                 // create a new Sprite from an image path
                 this.texture = PIXI.Texture.fromImage("https://raw.githubusercontent.com/pixijs/examples/gh-pages/required/assets/bunny.png");
