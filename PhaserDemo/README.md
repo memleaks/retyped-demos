@@ -1,6 +1,10 @@
 ## Retyped.phaser Demo ([live](https://demos.retyped.com/dist/phaser/))
 
-Phaser is a fun, free and fast 2D game framework for making HTML5 games for desktop and mobile web browsers, supporting Canvas and WebGL rendering. http://phaser.io
+Phaser is a fun, free and fast 2D game framework for making HTML5 games for desktop and mobile web browsers, supporting Canvas and WebGL rendering. 
+
+The source code is hosted in a repository on GitHub: https://github.com/photonstorm/phaser
+
+The official website: http://phaser.io
 
 ## Instructions for running
 
