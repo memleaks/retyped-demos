@@ -2,7 +2,9 @@
 
 Three.js is a cross-browser JavaScript library/API used to create and display animated 3D computer graphics in a web browser. Three.js uses WebGL. 
 
-The source code is hosted in a repository on GitHub. https://github.com/mrdoob/three.js/
+The source code is hosted in a repository on GitHub: https://github.com/mrdoob/three.js/
+
+The official website: https://threejs.org/
 
 ## Instructions for running
 
