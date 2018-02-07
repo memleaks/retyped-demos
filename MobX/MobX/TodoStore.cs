@@ -103,6 +103,7 @@ namespace MobX
             {
                 innerHTML = "Add",
                 className = "btn btn-primary",
+                style = {margin = "10px"},
                 disabled = true
             };
 
@@ -140,15 +141,13 @@ namespace MobX
 
         private void RenderItem(TodoItem item)
         {
-            var itemDiv = new HTMLDivElement
-            {
-                className = "item"
-            };
+            var itemDiv = new HTMLDivElement();
 
             // Create a CheckBox
             var checkBox = new HTMLInputElement
             {
                 type = "checkbox",
+                style = { margin = "10px"}
             };
 
             checkBox.addEventListener("click", e =>
