@@ -46,4 +46,8 @@ RD /S /Q .\dist\three.js
 MD .\dist\three.js
 XCOPY .\ThreeJsDemo\ThreeJsDemo\dist\* .\dist\three.js /S /I
 
+RD /S /Q .\dist\mobx
+MD .\dist\mobx
+XCOPY .\MobX\MobX\dist\* .\dist\mobx /S /I
+
 PAUSE
