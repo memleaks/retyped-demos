@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2018
- * @compiler Bridge.NET 16.7.0
+ * @compiler Bridge.NET 16.7.1
  */
 Bridge.assembly("ThreeJsDemo", function ($asm, globals) {
     "use strict";

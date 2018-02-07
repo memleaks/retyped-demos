@@ -4,7 +4,7 @@ require("./bridge.js");
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2017
- * @compiler Bridge.NET 16.7.0
+ * @compiler Bridge.NET 16.7.1
  */
 Bridge.assembly("NodeJsDemo", function ($asm, globals) {
     "use strict";
