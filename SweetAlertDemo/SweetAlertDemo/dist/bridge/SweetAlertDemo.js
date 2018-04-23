@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2017
- * @compiler Bridge.NET 16.7.1
+ * @compiler Bridge.NET 17.0.0
  */
 Bridge.assembly("SweetAlertDemo", function ($asm, globals) {
     "use strict";

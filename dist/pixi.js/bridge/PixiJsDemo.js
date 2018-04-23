@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2017
- * @compiler Bridge.NET 16.7.1
+ * @compiler Bridge.NET 17.0.0
  */
 Bridge.assembly("PixiJsDemo", function ($asm, globals) {
     "use strict";
@@ -30,7 +30,7 @@ Bridge.assembly("PixiJsDemo", function ($asm, globals) {
                 var appOptions = { };
                 appOptions.backgroundColor = 1087931;
 
-                var rootEl = document.querySelector("#root");
+                var rootEl = Bridge.cast(document.querySelector("#root"), HTMLDivElement);
                 this.app = new PIXI.Application(800, 600, appOptions);
                 rootEl.appendChild(this.app.view);
 

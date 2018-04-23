@@ -40,7 +40,7 @@ namespace NodeJsDemo
             // they will be translated to "console.log()" function. However, NodeJS always prints "console.log()" 
             // mesages in separate lines. 
             // In order to print a message without adding a new line, we can use "process.stdout":
-            process.stdout.write(">> Init Express App.. ");
+            process2.stdout.write(">> Init Express App.. ");
 
             try
             {
@@ -53,7 +53,7 @@ namespace NodeJsDemo
                     var args = (RequestArgs) request.@params;
                     var val = args.Value;
                     var responseTxt = $"sqr({val}) = {val * val}";
-                    response.send.Self(responseTxt);
+                    response.send(responseTxt);
                 };
 
                 // Another request handler:
@@ -62,7 +62,7 @@ namespace NodeJsDemo
                     var args = (RequestArgs)request.@params;
                     var val = args.Value;
                     var responseTxt = $"sqrt({val}) = {Math.Sqrt(val)}";
-                    response.send.Self(responseTxt);
+                    response.send(responseTxt);
                 };
 
                 System.Console.WriteLine("Done!");
@@ -78,7 +78,7 @@ namespace NodeJsDemo
 
         private static http.Server InitServer(ExpressApp app, int port)
         {
-            process.stdout.write($">> Creating Server on port {port}.. ");
+            process2.stdout.write($">> Creating Server on port {port}.. ");
 
             try
             {
@@ -137,7 +137,7 @@ namespace NodeJsDemo
             App = express.e2();
 
             // Create configs for different request types:
-            Get = new ExpressAppHandlerConfig(this, ((IRouter)App).get);
+            Get = new ExpressAppHandlerConfig(this, ((IRouter.Interface)App).get);
             Put = new ExpressAppHandlerConfig(this, App.put);
             Post = new ExpressAppHandlerConfig(this, App.post);
             Delete = new ExpressAppHandlerConfig(this, App.delete);

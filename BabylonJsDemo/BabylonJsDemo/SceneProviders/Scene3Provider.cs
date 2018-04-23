@@ -64,10 +64,11 @@ namespace BabylonJsDemo.SceneProviders
 
             scene.onPointerDown = (evt, pickInfo) =>
             {
-                var pickResult = scene.pickSprite(scene.pointerX, scene.pointerY);
+                var pickResult = (PickingInfo) scene.pickSprite(scene.pointerX, scene.pointerY);
                 if (pickResult.hit)
                 {
-                    pickResult.pickedSprite.angle += 0.5;
+                    var sprite = (Sprite) pickResult.pickedSprite;
+                    sprite.angle += 0.5;
                 }
             };
 

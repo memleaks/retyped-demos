@@ -14,7 +14,7 @@ namespace SvgJsDemo
 
         public static void Main()
         {
-            _content = document.querySelector("#content");
+            _content = (Element)document.querySelector("#content");
 
             var btnPongGame = (HTMLButtonElement)document.querySelector("#btnPongGame");
             var btnAnimation = (HTMLButtonElement)document.querySelector("#btnAnimation");

@@ -76,7 +76,7 @@ namespace BabylonJsDemo.SceneProviders
 
             // Animations
             var alpha = 0.0;
-            scene.beforeRender = () => { 
+            scene.beforeRender = new System.Action(() => { 
                 light0.position = new Vector3(10 * es5.Math.sin(alpha), 0, 10 * es5.Math.cos(alpha));
                 light1.position = new Vector3(10 * es5.Math.sin(alpha), 0, -10 * es5.Math.cos(alpha));
                 light2.position = new Vector3(10 * es5.Math.cos(alpha), 0, 10 * es5.Math.sin(alpha));
@@ -86,7 +86,7 @@ namespace BabylonJsDemo.SceneProviders
                 lightSphere2.position = light2.position;
 
                 alpha += 0.01;
-            };
+            });
 
             return scene;
         }

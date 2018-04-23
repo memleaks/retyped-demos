@@ -1,5 +1,4 @@
 ﻿using System;
-using Bridge;
 using Retyped;
 
 using static Retyped.pixi_js.PIXI;
@@ -16,10 +15,10 @@ namespace PixiJsDemo
             // Original demo:
             // http://pixijs.github.io/examples/#/demos/dragging.js
 
-            var appOptions = ObjectLiteral.Create<IApplicationOptions>();
+            var appOptions = new ApplicationOptions();
             appOptions.backgroundColor = 0x1099bb;
 
-            var rootEl = dom.document.querySelector("#root");
+            var rootEl = (dom.HTMLDivElement)dom.document.querySelector("#root");
             app = new Application(800, 600, appOptions);
             rootEl.appendChild(app.view);
 
@@ -55,7 +54,7 @@ namespace PixiJsDemo
             bunny.anchor.set(0.5);
 
             // make it a bit bigger, so it's easier to grab
-            bunny.scale.set(3);
+            ((Point)bunny.scale).set(3);
 
             // setup events for mouse + touch using
             // the pointer events

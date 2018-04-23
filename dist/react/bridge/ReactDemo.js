@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2017
- * @compiler Bridge.NET 16.7.1
+ * @compiler Bridge.NET 17.0.0
  */
 Bridge.assembly("ReactDemo", function ($asm, globals) {
     "use strict";
@@ -34,15 +34,18 @@ Bridge.assembly("ReactDemo", function ($asm, globals) {
             props: {
                 props$1: {
                     get: function () {
-                        return this.props;
+                        return Bridge.ensureBaseProperty(this, "props", "React$Component").$React$Component$props;
+                    },
+                    set: function (value) {
+                        Bridge.ensureBaseProperty(this, "props", "React$Component").$React$Component$props = value;
                     }
                 },
                 state$1: {
                     get: function () {
-                        return this.state;
+                        return Bridge.ensureBaseProperty(this, "state", "React$Component").$React$Component$state;
                     },
                     set: function (value) {
-                        this.state = value;
+                        Bridge.ensureBaseProperty(this, "state", "React$Component").$React$Component$state = value;
                     }
                 }
             },
@@ -51,31 +54,38 @@ Bridge.assembly("ReactDemo", function ($asm, globals) {
                     this.$initialize();
                     React.Component.call(this, p);
                     this.state$1 = { Value: "" };
+                    this.props$1 = p;
                 }
             },
             methods: {
                 render: function () {
-                    var $t;
                     // Create label:
                     var labelConfig = { key: "label1" };
-                    var labelNode = React.DOM.label(labelConfig, this.props$1.Label);
+    
+                    var labelNode = React.createElement("label", labelConfig);
+    
     
                     // Create input:
-                    var inputConfig = { style: ($t = new (Bridge.virtualc("React.CSSProperties"))(), $t.marginLeft = 20, $t), value: this.state$1.Value, onChange: Bridge.fn.bind(this, function (e) {
-                            this.setState({ Value: e.currentTarget.value });
+                    var inputConfig = { style: { marginLeft: 20 }, value: this.state$1.Value, onChange: Bridge.fn.bind(this, function (e) {
+                            this.state$1 = { Value: e.target.value };
+                            this.setState(this.state$1);
+                            //System.Console.WriteLine(e.target.Type2.value);
+                            //System.Console.WriteLine(state.Value);
                         }) };
                     inputConfig.key = "input1";
-                    var inputNode = React.DOM.input(inputConfig, null);
+                    var inputNode = React.createElement("input", inputConfig);
     
                     // Create button:
-                    var buttonConfig = { style: ($t = new (Bridge.virtualc("React.CSSProperties"))(), $t.height = 28, $t.width = 150, $t.marginLeft = 20, $t), dangerouslySetInnerHTML: { __html: System.String.isNullOrWhiteSpace(this.state$1.Value) ? "Enter text" : "Print to Console" }, disabled: System.String.isNullOrWhiteSpace(this.state$1.Value), onClick: Bridge.fn.bind(this, function (e) {
+                    var buttonConfig = { style: { height: 28, width: 150, marginLeft: 20 }, dangerouslySetInnerHTML: { __html: System.String.isNullOrWhiteSpace(this.state$1.Value) ? "Enter text" : "Print to Console" }, disabled: System.String.isNullOrWhiteSpace(this.state$1.Value), onClick: Bridge.fn.bind(this, function (e) {
                             this.props$1.OnSave(this.state$1.Value);
                         }) };
                     buttonConfig.key = "button1";
-                    var buttonNode = React.DOM.button(buttonConfig, null);
+                    var buttonNode = React.createElement("button", buttonConfig);
     
                     // Create div:
-                    var div = React.DOM.div({ className: "wrapper" }, System.Array.init([labelNode, inputNode, buttonNode], Bridge.virtualc("React.ReactNode")));
+                    var divConfig = { className: "wrapper" };
+    
+                    var div = React.createElement.apply(React, ["div", divConfig].concat(System.Array.init([labelNode, inputNode, buttonNode], Bridge.virtualc("React.ReactNode"))));
     
                     return div;
                 }

@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2017
- * @compiler Bridge.NET 16.7.1
+ * @compiler Bridge.NET 17.0.0
  */
 Bridge.assembly("DragulaDemo", function ($asm, globals) {
     "use strict";
@@ -61,7 +61,7 @@ Bridge.assembly("DragulaDemo", function ($asm, globals) {
                         } });
                 },
                 ConfigureExample7: function () {
-                    dragula(System.Array.init([document.getElementById("left-lovehandles"), document.getElementById("right-lovehandles")], Element), { moves: function (el, container, handle) {
+                    dragula(System.Array.init([document.getElementById("left-lovehandles"), document.getElementById("right-lovehandles")], Element), { moves: function (el, container, handle, sibling) {
                             return System.String.contains(handle.className,"handle");
                         } });
                 },

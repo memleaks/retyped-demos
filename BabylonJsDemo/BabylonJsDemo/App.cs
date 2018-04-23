@@ -1,6 +1,8 @@
 ﻿using System;
+using Bridge;
 using BabylonJsDemo.SceneProviders;
 using Retyped;
+using Retyped.Primitive;
 using static Retyped.babylon_js.BABYLON;
 
 namespace BabylonJsDemo
@@ -18,7 +20,8 @@ namespace BabylonJsDemo
             _canvas = (dom.HTMLCanvasElement) dom.document.getElementById("renderCanvas");
 
             // Init engine:
-            _engine = new Engine(_canvas.As<babylon_js.HTMLCanvasElement>(), true);
+            var canvasOrCtx = _canvas.As<Union<babylon_js.HTMLCanvasElement, babylon_js.WebGLRenderingContext>>();
+            _engine = new Engine(canvasOrCtx, true);
 
             // Init Event handlers:
             InitEventHandlers();

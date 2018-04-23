@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2017
- * @compiler Bridge.NET 16.7.1
+ * @compiler Bridge.NET 17.0.0
  */
 Bridge.assembly("ChartJsDemo", function ($asm, globals) {
     "use strict";
@@ -13,10 +13,10 @@ Bridge.assembly("ChartJsDemo", function ($asm, globals) {
 
             var random = new System.Random.ctor();
 
-            ChartJsDemo.App._chart1 = ChartJsDemo.App.CreateBarChart("myChart1", random.next());
-            ChartJsDemo.App._chart2 = ChartJsDemo.App.CreatePieChart("myChart2", random.next());
-            ChartJsDemo.App._chart3 = ChartJsDemo.App.CreatePolarChart("myChart3", random.next());
-            ChartJsDemo.App._chart4 = ChartJsDemo.App.CreateLineChart("myChart4", random.next());
+            ChartJsDemo.App._chart1 = ChartJsDemo.App.CreateBarChart("myChart1", random.Next());
+            ChartJsDemo.App._chart2 = ChartJsDemo.App.CreatePieChart("myChart2", random.Next());
+            ChartJsDemo.App._chart3 = ChartJsDemo.App.CreatePolarChart("myChart3", random.Next());
+            ChartJsDemo.App._chart4 = ChartJsDemo.App.CreateLineChart("myChart4", random.Next());
 
             ChartJsDemo.App.InitEventHandlers();
         },
@@ -84,11 +84,11 @@ Bridge.assembly("ChartJsDemo", function ($asm, globals) {
                                 try {
                                     while ($t.moveNext()) {
                                         var dataset = $t.Current;
-                                        dataset.data = ChartJsDemo.App.GetRandomData(100, random.v.next());
+                                        dataset.data = ChartJsDemo.App.GetRandomData(100, random.v.Next());
                                     }
                                 } finally {
                                     if (Bridge.is($t, System.IDisposable)) {
-                                        $t.System$IDisposable$dispose();
+                                        $t.System$IDisposable$Dispose();
                                     }
                                 }
                                 chart.v.update(null, null);
@@ -97,7 +97,7 @@ Bridge.assembly("ChartJsDemo", function ($asm, globals) {
 
                         addDataSet.addEventListener("click", (function ($me, chartData, random, chart) {
                             return function () {
-                                var newDataset = { label: "Dataset " + (((chartData.v.datasets.length + 1) | 0)), data: ChartJsDemo.App.GetRandomData(100, random.v.next()), borderWidth: 1, backgroundColor: ChartJsDemo.App.GetBackgroundColor(), borderColor: ChartJsDemo.App.GetBorderColor() };
+                                var newDataset = { label: "Dataset " + (((chartData.v.datasets.length + 1) | 0)), data: ChartJsDemo.App.GetRandomData(100, random.v.Next()), borderWidth: 1, backgroundColor: ChartJsDemo.App.GetBackgroundColor(), borderColor: ChartJsDemo.App.GetBorderColor() };
                                 chartData.v.datasets.push(newDataset);
                                 chart.v.update(null, null);
                             };
@@ -112,12 +112,12 @@ Bridge.assembly("ChartJsDemo", function ($asm, globals) {
                     }
                 },
                 GetLabels: function () {
-                    return System.Array.init(["Red", "Blue", "Yellow", "Green", "Purple", "Orange"], System.String);
+                    return new Array(System.Array.init(["Red"], System.String), System.Array.init(["Blue"], System.String), System.Array.init(["Yellow"], System.String), System.Array.init(["Green"], System.String), System.Array.init(["Purple"], System.String), System.Array.init(["Orange"], System.String));
                 },
                 GetRandomData: function (max, seed) {
                     if (seed === void 0) { seed = 0; }
                     var rnd = new System.Random.$ctor1(seed);
-                    return System.Array.init([rnd.next$1(max), rnd.next$1(max), rnd.next$1(max), rnd.next$1(max), rnd.next$1(max), rnd.next$1(max)], System.Double);
+                    return System.Array.init([rnd.Next$1(max), rnd.Next$1(max), rnd.Next$1(max), rnd.Next$1(max), rnd.Next$1(max), rnd.Next$1(max)], System.Double);
                 },
                 GetBackgroundColor: function () {
                     return System.Array.init(["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 206, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(255, 159, 64, 0.2)"], Bridge.virtualc("Chart.ChartColor"));

@@ -2,7 +2,7 @@
 
 namespace VueDemo.Components
 {
-    public class RootCmp : VueComponent<RootCmpModel>
+    public class RootCmp : VueComponent<RootCmpModel, RootCmpProps>
     {
         public RootCmp(string rootEl)
         {
@@ -26,5 +26,9 @@ namespace VueDemo.Components
     public class RootCmpModel
     {
         public string name;
+    }
+
+    public class RootCmpProps
+    {
     }
 }

@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2018
- * @compiler Bridge.NET 16.7.1
+ * @compiler Bridge.NET 17.0.0
  */
 Bridge.assembly("VueDemo", function ($asm, globals) {
     "use strict";
@@ -18,21 +18,64 @@ Bridge.assembly("VueDemo", function ($asm, globals) {
         /** @namespace VueDemo.Extensions */
     
         /**
-         * Vue componenent with a specific Model type.
+         * Vue componenent with a specific Model and Properties type.
          *
          * @public
-         * @class VueDemo.Extensions.VueComponent$1
-         * @augments System.Object
+         * @class VueDemo.Extensions.VueComponent$2
+         * @augments vue.System.Object
          * @param   {Function}    [name]    Model (data) type
+         * @param   {Function}    [name]    Properties type
          */
-        Bridge.define("VueDemo.Extensions.VueComponent$1", function (TModel) { return {
+        Bridge.define("VueDemo.Extensions.VueComponent$2", function (TModel, TProps) { return {
+            statics: {
+                methods: {
+                    /**
+                     * Collects component's property names
+                     *
+                     * @static
+                     * @private
+                     * @this VueDemo.Extensions.VueComponent$2
+                     * @memberof VueDemo.Extensions.VueComponent$2
+                     * @return  {Retyped.vue.ArrayPropsDefinition$1}
+                     */
+                    GetCmpPropertyNames: function () {
+                        var $t, $t1;
+                        var names = new (System.Collections.Generic.List$1(System.String)).ctor();
+    
+                        var propsEntityMembers = Bridge.Reflection.getMembers(TProps, 31, 20);
+                        $t = Bridge.getEnumerator(propsEntityMembers);
+                        try {
+                            while ($t.moveNext()) {
+                                var member = $t.Current;
+                                var field = Bridge.as(member, System.Reflection.FieldInfo);
+                                if (field != null && !(field.sy || false)) {
+                                    names.add(field.sn);
+                                    continue;
+                                }
+    
+                                var prop = Bridge.as(member, System.Reflection.PropertyInfo);
+                                if (prop != null) {
+                                    names.add(($t1 = prop.fn, $t1 != null ? $t1 : prop.n));
+                                }
+                            }
+                        } finally {
+                            if (Bridge.is($t, System.IDisposable)) {
+                                $t.System$IDisposable$Dispose();
+                            }
+                        }
+                        return System.Linq.Enumerable.from(names).select(function (x) {
+                                return x;
+                            }).ToArray(String);
+                    }
+                }
+            },
             fields: {
                 /**
                  * Overrides {@link } with the actual model type.
                  *
                  * @instance
                  * @public
-                 * @memberof VueDemo.Extensions.VueComponent$1
+                 * @memberof VueDemo.Extensions.VueComponent$2
                  * @function data
                  * @type System.Func
                  */
@@ -44,8 +87,8 @@ Bridge.assembly("VueDemo", function ($asm, globals) {
                  *
                  * @instance
                  * @public
-                 * @this VueDemo.Extensions.VueComponent$1
-                 * @memberof VueDemo.Extensions.VueComponent$1
+                 * @this VueDemo.Extensions.VueComponent$2
+                 * @memberof VueDemo.Extensions.VueComponent$2
                  * @param   {boolean}    registerMembers    If true, automatically registers [VueMethods]/[VueComputed] methods.
                  * @return  {void}
                  */
@@ -53,6 +96,8 @@ Bridge.assembly("VueDemo", function ($asm, globals) {
                     if (registerMembers === void 0) { registerMembers = true; }
     
                     this.$initialize();
+                    this.props = VueDemo.Extensions.VueComponent$2(TModel,TProps).GetCmpPropertyNames();
+    
                     if (registerMembers) {
                         this.methods = this.RegisterMethods();
                         this.computed = this.RegisterComputed();
@@ -65,9 +110,9 @@ Bridge.assembly("VueDemo", function ($asm, globals) {
                  *
                  * @instance
                  * @private
-                 * @this VueDemo.Extensions.VueComponent$1
-                 * @memberof VueDemo.Extensions.VueComponent$1
-                 * @return  {System.Object}
+                 * @this VueDemo.Extensions.VueComponent$2
+                 * @memberof VueDemo.Extensions.VueComponent$2
+                 * @return  {vue.System.Object}
                  */
                 RegisterMethods: function () {
                     var $t;
@@ -97,7 +142,7 @@ Bridge.assembly("VueDemo", function ($asm, globals) {
                         }
                     } finally {
                         if (Bridge.is($t, System.IDisposable)) {
-                            $t.System$IDisposable$dispose();
+                            $t.System$IDisposable$Dispose();
                         }
                     }
                     return config;
@@ -107,9 +152,9 @@ Bridge.assembly("VueDemo", function ($asm, globals) {
                  *
                  * @instance
                  * @private
-                 * @this VueDemo.Extensions.VueComponent$1
-                 * @memberof VueDemo.Extensions.VueComponent$1
-                 * @return  {System.Object}
+                 * @this VueDemo.Extensions.VueComponent$2
+                 * @memberof VueDemo.Extensions.VueComponent$2
+                 * @return  {vue.System.Object}
                  */
                 RegisterComputed: function () {
                     var $t;
@@ -140,13 +185,22 @@ Bridge.assembly("VueDemo", function ($asm, globals) {
                         }
                     } finally {
                         if (Bridge.is($t, System.IDisposable)) {
-                            $t.System$IDisposable$dispose();
+                            $t.System$IDisposable$Dispose();
                         }
                     }
                     return config;
                 }
             }
         }; });
+    
+        Bridge.define("VueDemo.Components.HelloCmpProps", {
+            fields: {
+                name: null,
+                initialEnthusiasm: 0
+            }
+        });
+    
+        Bridge.define("VueDemo.Components.RootCmpProps");
     
         /**
          * Only static methods are supported.
@@ -172,81 +226,9 @@ Bridge.assembly("VueDemo", function ($asm, globals) {
     
         Bridge.define("VueDemo.Index", {
             main: function Main () {
-                var v = new vue(new VueDemo.Components.RootCmp("#app"));
+                var v = new vue (new VueDemo.Components.RootCmp("#app"));
             }
         });
-    
-        /**
-         * Vue componenent with a specific Model and Properties type.
-         *
-         * @public
-         * @class VueDemo.Extensions.VueComponent$2
-         * @augments VueDemo.Extensions.VueComponent$1
-         * @param   {Function}    [name]    Model (data) type
-         * @param   {Function}    [name]    Properties type
-         */
-        Bridge.define("VueDemo.Extensions.VueComponent$2", function (TModel, TProperties) { return {
-            inherits: [VueDemo.Extensions.VueComponent$1(TModel)],
-            statics: {
-                methods: {
-                    /**
-                     * Collects component's property names
-                     *
-                     * @static
-                     * @private
-                     * @this VueDemo.Extensions.VueComponent$2
-                     * @memberof VueDemo.Extensions.VueComponent$2
-                     * @return  {Array.<string>}
-                     */
-                    GetCmpPropertyNames: function () {
-                        var $t, $t1;
-                        var names = new (System.Collections.Generic.List$1(System.String)).ctor();
-    
-                        var propsEntityMembers = Bridge.Reflection.getMembers(TProperties, 31, 20);
-                        $t = Bridge.getEnumerator(propsEntityMembers);
-                        try {
-                            while ($t.moveNext()) {
-                                var member = $t.Current;
-                                var field = Bridge.as(member, System.Reflection.FieldInfo);
-                                if (field != null && !(field.sy || false)) {
-                                    names.add(field.sn);
-                                    continue;
-                                }
-    
-                                var prop = Bridge.as(member, System.Reflection.PropertyInfo);
-                                if (prop != null) {
-                                    names.add(($t1 = prop.fn, $t1 != null ? $t1 : prop.n));
-                                }
-                            }
-                        } finally {
-                            if (Bridge.is($t, System.IDisposable)) {
-                                $t.System$IDisposable$dispose();
-                            }
-                        }
-                        return names.toArray();
-                    }
-                }
-            },
-            ctors: {
-                /**
-                 * Creates a Vue componenent with a specific Model and Properties type.
-                 *
-                 * @instance
-                 * @public
-                 * @this VueDemo.Extensions.VueComponent$2
-                 * @memberof VueDemo.Extensions.VueComponent$2
-                 * @param   {boolean}    registerMembers    If true, automatically registers [VueMethods]/[VueComputed] methods.
-                 * @return  {void}
-                 */
-                ctor: function (registerMembers) {
-                    if (registerMembers === void 0) { registerMembers = true; }
-    
-                    this.$initialize();
-                    VueDemo.Extensions.VueComponent$1(TModel).ctor.call(this, registerMembers);
-                    this.props = VueDemo.Extensions.VueComponent$2(TModel,TProperties).GetCmpPropertyNames();
-                }
-            }
-        }; });
     
         Bridge.define("VueDemo.Components.HelloCmpModel", {
             fields: {
@@ -257,36 +239,6 @@ Bridge.assembly("VueDemo", function ($asm, globals) {
         Bridge.define("VueDemo.Components.RootCmpModel", {
             fields: {
                 name: null
-            }
-        });
-    
-        Bridge.define("VueDemo.Components.HelloCmpProps", {
-            fields: {
-                name: null,
-                initialEnthusiasm: 0
-            }
-        });
-    
-        Bridge.define("VueDemo.Components.RootCmp", {
-            inherits: [VueDemo.Extensions.VueComponent$1(VueDemo.Components.RootCmpModel)],
-            ctors: {
-                ctor: function (rootEl) {
-                    this.$initialize();
-                    VueDemo.Extensions.VueComponent$1(VueDemo.Components.RootCmpModel).ctor.call(this);
-                    this.el = rootEl;
-    
-                    this.template = "\r\n<div>\r\n    Name:  <input v-model=\"name\" type=\"text\">\r\n    <HelloComponent :name=\"name\" :initialEnthusiasm=\"5\" />\r\n</div>";
-    
-                    this.data = function () {
-                        var $t;
-                        return ($t = new VueDemo.Components.RootCmpModel(), $t.name = "World", $t);
-                    };
-    
-                    this.components = function (_o1) {
-                            _o1.HelloComponent = new VueDemo.Components.HelloCmp();
-                            return _o1;
-                        }({ });
-                }
             }
         });
     
@@ -315,6 +267,29 @@ Bridge.assembly("VueDemo", function ($asm, globals) {
                         var $t;
                         return ($t = new VueDemo.Components.HelloCmpModel(), $t.enthusiasm = this.initialEnthusiasm, $t);
                     };
+                }
+            }
+        });
+    
+        Bridge.define("VueDemo.Components.RootCmp", {
+            inherits: [VueDemo.Extensions.VueComponent$2(VueDemo.Components.RootCmpModel,VueDemo.Components.RootCmpProps)],
+            ctors: {
+                ctor: function (rootEl) {
+                    this.$initialize();
+                    VueDemo.Extensions.VueComponent$2(VueDemo.Components.RootCmpModel,VueDemo.Components.RootCmpProps).ctor.call(this);
+                    this.el = rootEl;
+    
+                    this.template = "\r\n<div>\r\n    Name:  <input v-model=\"name\" type=\"text\">\r\n    <HelloComponent :name=\"name\" :initialEnthusiasm=\"5\" />\r\n</div>";
+    
+                    this.data = function () {
+                        var $t;
+                        return ($t = new VueDemo.Components.RootCmpModel(), $t.name = "World", $t);
+                    };
+    
+                    this.components = function (_o1) {
+                            _o1.HelloComponent = new VueDemo.Components.HelloCmp();
+                            return _o1;
+                        }({ });
                 }
             }
         });

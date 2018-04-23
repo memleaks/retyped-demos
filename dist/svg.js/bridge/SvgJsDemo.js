@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2018
- * @compiler Bridge.NET 16.7.1
+ * @compiler Bridge.NET 17.0.0
  */
 Bridge.assembly("SvgJsDemo", function ($asm, globals) {
     "use strict";
@@ -11,7 +11,7 @@ Bridge.assembly("SvgJsDemo", function ($asm, globals) {
     
         Bridge.define("SvgJsDemo.App", {
             main: function Main () {
-                SvgJsDemo.App._content = document.querySelector("#content");
+                SvgJsDemo.App._content = Bridge.cast(document.querySelector("#content"), Element);
     
                 var btnPongGame = Bridge.cast(document.querySelector("#btnPongGame"), HTMLButtonElement);
                 var btnAnimation = Bridge.cast(document.querySelector("#btnAnimation"), HTMLButtonElement);

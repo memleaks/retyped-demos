@@ -20,15 +20,13 @@ namespace ChromeDemo
             var quoteEl = jQuery.select("#quoteblock");
             var authorEl = jQuery.select("#author");
 
-            jQuery.get(url, "", (data, status, xhr) =>
+            jQuery.get(url, "", new JQuery.jqXHR.DoneCallback<object, JQuery.jqXHR<object>>((data, status, xhr, never) =>
             {
                 var response = (QuoteResponse) data;
 
                 quoteEl.text(response.contents.quotes[0].quote);
                 authorEl.text(response.contents.quotes[0].author);
-
-                return null;
-            });
+            }));
 
             // Let's reload a new tab every 15 seconds:
             chrome.tabs.onUpdated.addListener((id, info, tab) =>

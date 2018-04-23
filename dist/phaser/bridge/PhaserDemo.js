@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2017
- * @compiler Bridge.NET 16.7.1
+ * @compiler Bridge.NET 17.0.0
  */
 Bridge.assembly("PhaserDemo", function ($asm, globals) {
     "use strict";
@@ -58,7 +58,7 @@ Bridge.assembly("PhaserDemo", function ($asm, globals) {
                             var state3 = new PhaserDemo.Games.GameState3();
                             return new Phaser.Game(800, 600, Phaser.AUTO, "phaserRoot", state3);
                         default: 
-                            throw new System.ArgumentOutOfRangeException("number");
+                            throw new System.ArgumentOutOfRangeException.$ctor1("number");
                     }
                 }
             }

@@ -126,7 +126,7 @@ namespace DragulaDemo
                 },
                 new DragulaOptions
                 {
-                    moves = (el, container, handle) => handle.className.Contains("handle")
+                    moves = (el, container, handle, sibling) => handle.className.Contains("handle")
                 });
         }
 

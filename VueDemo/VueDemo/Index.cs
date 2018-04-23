@@ -1,5 +1,4 @@
-﻿using Retyped;
-using VueDemo.Components;
+﻿using VueDemo.Components;
 
 namespace VueDemo
 {
@@ -7,7 +6,7 @@ namespace VueDemo
     {
         public static void Main()
         {
-            var v = new vue.Vue(new RootCmp("#app"));
+            var v = new RootCmp("#app").Create();
         }
     }
 }

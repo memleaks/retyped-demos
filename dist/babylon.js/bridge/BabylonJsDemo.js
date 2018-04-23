@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2017
- * @compiler Bridge.NET 16.7.1
+ * @compiler Bridge.NET 17.0.0
  */
 Bridge.assembly("BabylonJsDemo", function ($asm, globals) {
     "use strict";
@@ -12,7 +12,8 @@ Bridge.assembly("BabylonJsDemo", function ($asm, globals) {
             BabylonJsDemo.App._canvas = Bridge.cast(document.getElementById("renderCanvas"), HTMLCanvasElement);
 
             // Init engine:
-            BabylonJsDemo.App._engine = new BABYLON.Engine(BabylonJsDemo.App._canvas, true);
+            var canvasOrCtx = BabylonJsDemo.App._canvas;
+            BabylonJsDemo.App._engine = new BABYLON.Engine(canvasOrCtx, true);
 
             // Init Event handlers:
             BabylonJsDemo.App.InitEventHandlers();
@@ -75,7 +76,7 @@ Bridge.assembly("BabylonJsDemo", function ($asm, globals) {
                         case 3: 
                             return new BabylonJsDemo.SceneProviders.Scene3Provider();
                         default: 
-                            throw new System.ArgumentOutOfRangeException("number");
+                            throw new System.ArgumentOutOfRangeException.$ctor1("number");
                     }
                 }
             }
@@ -269,11 +270,10 @@ Bridge.assembly("BabylonJsDemo", function ($asm, globals) {
                 spriteManagerPlayer.isPickable = true;
 
                 scene.onPointerDown = function (evt, pickInfo) {
-                    var $t;
                     var pickResult = scene.pickSprite(scene.pointerX, scene.pointerY);
                     if (pickResult.hit) {
-                        $t = pickResult.pickedSprite;
-                        $t.angle += 0.5;
+                        var sprite = pickResult.pickedSprite;
+                        sprite.angle += 0.5;
                     }
                 };
 

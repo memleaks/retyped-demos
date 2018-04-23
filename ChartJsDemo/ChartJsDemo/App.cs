@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Bridge;
 using static Retyped.dom;
 using static Retyped.chart_js;
@@ -32,7 +33,7 @@ namespace ChartJsDemo
             var chartConfig = new Chart.ChartConfiguration
             {
                 type = "bar",
-                data = new Chart.LinearChartData
+                data = new Chart.ChartData
                 {
                     labels = GetLabels(),
                     datasets = new[]
@@ -66,7 +67,7 @@ namespace ChartJsDemo
             var chartConfig = new Chart.ChartConfiguration
             {
                 type = "pie",
-                data = new Chart.LinearChartData
+                data = new Chart.ChartData
                 {
                     labels = GetLabels(),
                     datasets = new[]
@@ -98,7 +99,7 @@ namespace ChartJsDemo
             var chartConfig = new Chart.ChartConfiguration
             {
                 type = "polarArea",
-                data = new Chart.LinearChartData
+                data = new Chart.ChartData
                 {
                     labels = GetLabels(),
                     datasets = new[]
@@ -130,7 +131,7 @@ namespace ChartJsDemo
             var chartConfig = new Chart.ChartConfiguration
             {
                 type = "line",
-                data = new Chart.LinearChartData
+                data = new Chart.ChartData
                 {
                     labels = GetLabels(),
                     datasets = new[]
@@ -163,7 +164,7 @@ namespace ChartJsDemo
             for (var i = 0; i < charts.Length; i++)
             {
                 var chart = charts[i];
-                var chartData = (Chart.LinearChartData)chart.config.data;
+                var chartData = chart.config.data;
 
                 var suffix = i + 1;
                 var randomizeBtn = (HTMLButtonElement)document.getElementById("randomizeData" + suffix);
@@ -205,9 +206,15 @@ namespace ChartJsDemo
             }
         }
 
-        private static string[] GetLabels()
+        private static Retyped.es5.Array<Union<string, string[]>> GetLabels()
         {
-            return new[] {"Red", "Blue", "Yellow", "Green", "Purple", "Orange"};
+            return new Retyped.es5.Array<Union<string, string[]>>(
+                new[] {"Red"},
+                new[] {"Blue"},
+                new[] {"Yellow"},
+                new[] {"Green"},
+                new[] {"Purple"},
+                new[] {"Orange"});
         }
 
         private static double[] GetRandomData(int max, int seed = 0)

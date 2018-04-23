@@ -7,10 +7,6 @@ using static Retyped.react_dom;
 
 namespace ReactDemo
 {
-    using DivAttr = HTMLAttributes<HTMLDivElement>;
-    using InputAttr = ChangeTargetHTMLAttributes<HTMLInputElement>;
-    using ButtonAttr = ChangeTargetHTMLAttributes<HTMLButtonElement>;
-
     public class Demo
     {
         public static void Main()
@@ -23,8 +19,8 @@ namespace ReactDemo
                 OnSave = value => System.Console.WriteLine($"Entered value: '{value}'.")
             };
 
-            var formEl = createElement(MessageEntryForm.Class, formProps);
-            render(formEl, root);
+            var formEl = createElement<MessageEntryForm.Props>(MessageEntryForm.Class, formProps);
+            render.Self(formEl, root);
         }
     }
 
@@ -32,7 +28,11 @@ namespace ReactDemo
     {
         public static ComponentClass<Props> Class => typeof(MessageEntryForm).As<ComponentClass<Props>>();
 
-        public new Props props => base.props.As<Props>();
+        public new Props props
+        {
+            get { return base.props.As<Props>(); }
+            set { base.props = value.As<es5.Readonly<Props>>(); }
+        }
 
         public new State state
         {
@@ -44,6 +44,7 @@ namespace ReactDemo
             : base(p)
         {
             state = new State { Value = "" };
+            props = p;
         }
 
         [Name("render")]
@@ -55,50 +56,66 @@ namespace ReactDemo
                 {
                     key = "label1"
                 };
-            var labelNode = DOM.label.Self(labelConfig, props.Label).AsNode();
+
+            var labelNode = createElement("label", labelConfig).AsNode();
+
 
             // Create input:
-            Intersection<ClassAttributes<HTMLInputElement>, ChangeTargetHTMLAttributes<HTMLInputElement>> inputConfig =
-                new ChangeTargetHTMLAttributes<HTMLInputElement>
+            Intersection<ClassAttributes<HTMLInputElement>, InputHTMLAttributes<HTMLInputElement>> inputConfig =
+                new InputHTMLAttributes<HTMLInputElement>
                 {
                     style = new CSSProperties
                     {
-                        marginLeft = 20,
+                        marginLeft = (Union<string, double>) 20
                     },
                     value = state.Value,
                     onChange = Handler.ChangeEvent<HTMLInputElement>(e =>
                     {
-                        setState(new State { Value = e.currentTarget.Type2.value});
+                        state = new State { Value = e.target.Type2.value };
+                        setState<KeyOf<State>>(state);
+                        //System.Console.WriteLine(e.target.Type2.value);
+                        //System.Console.WriteLine(state.Value);
                     })
                 };
             inputConfig.Type1.key = "input1";
-            var inputNode = DOM.input.Self(inputConfig).AsNode();
+            var inputNode = createElement("input", inputConfig).AsNode();
 
             // Create button:
-            Intersection<ClassAttributes<HTMLButtonElement>, HTMLAttributes<HTMLButtonElement>> buttonConfig =
-                new HTMLAttributes<HTMLButtonElement>
+            Intersection<ClassAttributes<HTMLButtonElement>, ButtonHTMLAttributes<HTMLButtonElement>> buttonConfig =
+                new ButtonHTMLAttributes<HTMLButtonElement>
                 {
                     style = new CSSProperties
                     {
-                        height = 28,
-                        width = 150,
-                        marginLeft = 20,
+                        height = (Union<string, double>) 28,
+                        width = (Union<string, double>) 150,
+                        marginLeft = (Union<string, double>) 20
                     },
                     dangerouslySetInnerHTML = new DOMAttributes<HTMLButtonElement>.dangerouslySetInnerHTMLConfig()
                     {
                         __html =string.IsNullOrWhiteSpace(state.Value) ? "Enter text" : "Print to Console",
                     },
                     disabled = string.IsNullOrWhiteSpace(state.Value),
-                    onClick = Handler.MouseEvent<HTMLButtonElement>(e => props.OnSave(state.Value))
+                    onClick = Handler.MouseEvent<HTMLButtonElement>(e =>
+                    {
+                        props.OnSave(state.Value);
+                    })
                 };
             buttonConfig.Type1.key = "button1";
-            var buttonNode = DOM.button.Self(buttonConfig).AsNode();
+            var buttonNode = createElement("button", buttonConfig).AsNode();
 
             // Create div:
-            var div = DOM.div.Self(new HTMLAttributes<HTMLDivElement> { className = "wrapper" }, new [] {
+            Intersection<ClassAttributes<HTMLDivElement>, HTMLAttributes<HTMLDivElement>> divConfig =
+                new HTMLAttributes<HTMLDivElement>
+                {
+                    className = "wrapper"
+                };
+
+            var div = createElement("div", divConfig, new[]
+            {
                 labelNode,
                 inputNode,
-                buttonNode});
+                buttonNode
+            });
 
             return div;
         }
@@ -111,7 +128,7 @@ namespace ReactDemo
         }
 
         [ObjectLiteral]
-        public class State : es5.Pick<State, KeyOf<State>>
+        public class State
         {
             public string Value;
         }
