@@ -111,10 +111,6 @@ namespace MissingAPI
     public static class SvgJsExtensions
     {
         [Template("{0}.loop({1}, {2})")]
-        public static extern T loop<T>(this T el, int? times, bool reverse)
-            where T : svgjs.Element;
-
-        [Template("{0}.loop({1}, {2})")]
         public static extern svgjs.Animation loop(this svgjs.Animation el, int? times, bool reverse);
 
         [Template("{0}.plot({1})")]

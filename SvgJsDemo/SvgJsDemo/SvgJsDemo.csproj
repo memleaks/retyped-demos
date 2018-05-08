@@ -65,14 +65,16 @@
       <HintPath>..\..\packages\Retyped.es5.2.8.6685\lib\net40\Retyped.es5.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Retyped.svg.js">
-      <HintPath>..\..\packages\Retyped.svg.js.2.6.6590\lib\net40\Retyped.svg.js.dll</HintPath>
+    <Reference Include="Retyped.svg.js, Version=2.6.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Retyped.svg.js.2.6.6702\lib\net40\Retyped.svg.js.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="bridge.json" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="dist\bridge\bridge.js" />
