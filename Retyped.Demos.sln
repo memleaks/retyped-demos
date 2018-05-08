@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeJsDemo", "ThreeJsDemo\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobX", "MobX\MobX\MobX.csproj", "{2F860ECF-4CF4-41E0-A529-A3E0B275527C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisJsDemo", "VisJsDemo\VisJsDemo\VisJsDemo.csproj", "{F4D034CD-AD62-4B03-B464-A978BF31ACBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{2F860ECF-4CF4-41E0-A529-A3E0B275527C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F860ECF-4CF4-41E0-A529-A3E0B275527C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F860ECF-4CF4-41E0-A529-A3E0B275527C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4D034CD-AD62-4B03-B464-A978BF31ACBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4D034CD-AD62-4B03-B464-A978BF31ACBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4D034CD-AD62-4B03-B464-A978BF31ACBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4D034CD-AD62-4B03-B464-A978BF31ACBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -50,4 +50,8 @@ RD /S /Q .\dist\mobx
 MD .\dist\mobx
 XCOPY .\MobX\MobX\dist\* .\dist\mobx /S /I
 
+RD /S /Q .\dist\vis.js
+MD .\dist\vis.js
+XCOPY .\VisJsDemo\VisJsDemo\dist\* .\dist\vis.js /S /I
+
 PAUSE

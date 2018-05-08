@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Retyped Vis.js Demo</title>
+    <script src="../assets/layout.js" LibName="Vis.js" ProjName="VisJsDemo"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="vis-timeline-graph2d.min.css">
+    
+    <script src="bridge/bridge.js"></script>
+    <script src="require.js"></script>
+    <script src="bridge/VisJSDemo.js"></script>
+    
+    <style>
+        body {
+            margin: 30px;
+        }
+
+        #sampleButtons {
+            margin: 10px 0;
+        }
+
+        #btnNetwork, #btnTimeline {
+            margin: 0 5px 0 0;
+        }
+
+        div.vis-readonly,
+        div.vis-readonly.vis-selected {
+            /* custom styling for readonly items... */
+            background-color: #ff4500;
+            border-color: red;
+            color: white;
+        }
+        
+    </style>
+
+</head>
+<body>
+
+    <div id="content" class="main">
+        <div id="sampleButtons">
+            <button id="btnNetwork" class="btn btn-primary">Sample 1: Network</button>
+            <button id="btnTimeline" class="btn btn-primary">Sample 2: Timeline</button>
+        </div>
+    </div>
+
+</body>
+</html>
