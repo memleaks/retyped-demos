@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GranularDemo", "GranularDemo\GranularDemo.csproj", "{DA89821A-7798-49B8-917F-3D9E1BF7DC69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GranularDemo.Web", "GranularDemo.Web\GranularDemo.Web.csproj", "{63954358-426D-49E6-BB00-2829E6339473}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GranularDemo.Shared", "GranularDemo.Shared\GranularDemo.Shared.csproj", "{B7EC85CD-1F1E-45B7-A7C1-86D02183E6A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA89821A-7798-49B8-917F-3D9E1BF7DC69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA89821A-7798-49B8-917F-3D9E1BF7DC69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA89821A-7798-49B8-917F-3D9E1BF7DC69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA89821A-7798-49B8-917F-3D9E1BF7DC69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63954358-426D-49E6-BB00-2829E6339473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63954358-426D-49E6-BB00-2829E6339473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63954358-426D-49E6-BB00-2829E6339473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63954358-426D-49E6-BB00-2829E6339473}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7EC85CD-1F1E-45B7-A7C1-86D02183E6A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7EC85CD-1F1E-45B7-A7C1-86D02183E6A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7EC85CD-1F1E-45B7-A7C1-86D02183E6A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7EC85CD-1F1E-45B7-A7C1-86D02183E6A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
