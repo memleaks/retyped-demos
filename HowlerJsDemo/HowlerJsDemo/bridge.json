@@ -54,6 +54,8 @@
     "autoProperty": "Plain",
     "boxing": "Managed",
     "integer": "Managed",
-    "lambda": "Plain"
+    "lambda": "Plain",
+    "externalCast": "Plain",
+    "inlineComment": "Plain"
   }
 }

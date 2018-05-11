@@ -8,10 +8,10 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
 
     Bridge.define("HowlerJsDemo.App", {
         main: function Main () {
-            HowlerJsDemo.App._content = Bridge.cast(document.querySelector("#content"), Element);
+            HowlerJsDemo.App._content = document.querySelector("#content");
 
-            var btnRadio = Bridge.cast(document.querySelector("#btnRadio"), HTMLButtonElement);
-            var btnSprite = Bridge.cast(document.querySelector("#btnSprite"), HTMLButtonElement);
+            var btnRadio = document.querySelector("#btnRadio");
+            var btnSprite = document.querySelector("#btnSprite");
 
             btnRadio.onclick = function (ev) {
                 HowlerJsDemo.App._radio != null ? HowlerJsDemo.App._radio.Stop() : null;
@@ -29,7 +29,6 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
                 return Bridge.box(true, System.Boolean, System.Boolean.toString);
             };
 
-            // Render Radio sample by default
             HowlerJsDemo.App.RenderRadio();
         },
         statics: {
@@ -55,7 +54,6 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
                         HowlerJsDemo.App._content.removeChild(HowlerJsDemo.App._rootDiv);
                     }
 
-                    // Add root Div to the Document
                     HowlerJsDemo.App._rootDiv = ($t = document.createElement("div"), $t.className = "radioRoot", $t.style.padding = "100px", $t);
 
                     HowlerJsDemo.App._content.appendChild(HowlerJsDemo.App._rootDiv);
@@ -77,12 +75,11 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
                         HowlerJsDemo.App._content.removeChild(HowlerJsDemo.App._rootDiv);
                     }
 
-                    // Add root Div to the Document
                     HowlerJsDemo.App._rootDiv = ($t = document.createElement("div"), $t.className = "spriteRoot", $t);
 
                     HowlerJsDemo.App._content.appendChild(HowlerJsDemo.App._rootDiv);
 
-                    HowlerJsDemo.App._sprite = new HowlerJsDemo.SpriteDemo.Sprite(HowlerJsDemo.App._rootDiv, ($t = new HowlerJsDemo.SpriteDemo.SpriteOptions(), $t.Width = System.Array.init([78, 60, 62, 70, 62, 1895], System.Int32), $t.Left = System.Array.init([0, 342, 680, 1022, 1361], System.Int32), $t.Src = System.Array.init(["https://raw.githubusercontent.com/goldfire/howler.js/master/tests/audio/sound2.webm", "https://raw.githubusercontent.com/goldfire/howler.js/master/tests/audio/sound2.mp3"], System.String), $t.Sprite = function (_o1) {
+                    HowlerJsDemo.App._sprite = new HowlerJsDemo.SpriteDemo.Sprite(HowlerJsDemo.App._rootDiv, ($t = new HowlerJsDemo.SpriteDemo.SpriteOptions(), $t.Width = System.Array.init([78, 60, 62, 70, 62, 1895], System.Int32), $t.Left = System.Array.init([0, 342, 680, 1022, 1361], System.Int32), $t.Src = System.Array.init(["https://raw.githubusercontent.com/Retyped/Demos/master/HowlerJsDemo/HowlerJsDemo/dist/assets/audio/sound2.webm", "https://raw.githubusercontent.com/Retyped/Demos/master/HowlerJsDemo/HowlerJsDemo/dist/assets/audio/sound2.mp3"], System.String), $t.Sprite = function (_o1) {
                             _o1.one = [0, 450];
                             _o1.two = [2000, 250];
                             _o1.three = [4000, 350];
@@ -129,9 +126,7 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
                 this._stations = stations;
                 this._renderInfo = System.Array.init(stations.length, null, HowlerJsDemo.RadioDemo.RadioStationRenderInfo);
 
-                // Setup the display for each station.
                 for (var i = 0; i < stations.length; i = (i + 1) | 0) {
-                    // Render station:
                     this._renderInfo[System.Array.index(i, this._renderInfo)] = this.Render(rootEl, stations[System.Array.index(i, stations)], i);
                 }
             }
@@ -182,10 +177,8 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
                 renderInfo.Station.addEventListener("click", Bridge.fn.bind(this, function (e) {
                     var isNotPlaying = station.Howl == null || !station.Howl.playing();
 
-                    // Stop other sounds or the current one.
                     this.Stop();
 
-                    // If the station isn't already playing or it doesn't exist, play it.
                     if (station.Howl == null || isNotPlaying) {
                         this.Play(stationIndex);
                     }
@@ -212,8 +205,6 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
 
                 var data = this._stations[System.Array.index(index, this._stations)];
 
-                // If we already loaded this track, use the current one.
-                // Otherwise, setup and load a new Howl.
                 if (data.Howl == null) {
                     var srcArray = System.Linq.Enumerable.from(data.Sources).select(function (x) {
                             return x.Url;
@@ -225,13 +216,10 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
                     data.Howl = new Howl({ src: srcArray, html5: true, format: formatArray });
                 }
 
-                // Begin playing the sound.
                 data.Howl.play();
 
-                // Toggle the display.
                 this.ToggleStationDisplay(index, true);
 
-                // Keep track of the index we are currently playing.
                 this._index = index;
             },
             /**
@@ -244,13 +232,10 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
              * @return  {void}
              */
             Stop: function () {
-                // Get the Howl we want to manipulate.
                 var sound = this._stations[System.Array.index(this._index, this._stations)].Howl;
 
-                // Toggle the display.
                 this.ToggleStationDisplay(this._index, false);
 
-                // Stop the sound.
                 sound != null ? sound.stop() : null;
             },
             /**
@@ -265,13 +250,10 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
              * @return  {void}
              */
             ToggleStationDisplay: function (index, state) {
-                // Highlight/un-highlight the row.
                 this._renderInfo[System.Array.index(index, this._renderInfo)].Station.style.backgroundColor = state ? "rgba(255, 255, 255, 0.33)" : "";
 
-                // Show/hide the "live" marker.
                 this._renderInfo[System.Array.index(index, this._renderInfo)].Live.style.opacity = state ? "1" : "0";
 
-                // Show/hide the "playing" animation.
                 this._renderInfo[System.Array.index(index, this._renderInfo)].Playing.style.display = state ? "block" : "none";
             }
         }
@@ -363,21 +345,17 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
              */
             ctor: function (rootEl, options) {
                 this.$initialize();
-                // Setup the options to define this sprite display.
                 this._options = options;
                 this.Render(rootEl);
 
-                // Create our audio sprite definition.
                 this._sound = new Howl({ src: options.Src, sprite: options.Sprite });
 
-                // Setup a resize event and fire it to setup our sprite overlays.
                 window.addEventListener("resize", Bridge.fn.bind(this, function (e) {
                     this.Resize();
                 }), false);
 
                 this.Resize();
 
-                // Begin the progress step tick.
                 requestAnimationFrame(Bridge.fn.cacheBind(this, this.Step));
             }
         },
@@ -448,10 +426,8 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
              * @return  {void}
              */
             Play: function (spriteName) {
-                // Play the sprite sound and capture the ID.
                 var id = this._sound.play(spriteName);
 
-                // Create a progress element and begin visually tracking it.
                 var elm = function (_o1) {
                         _o1.id = System.Double.format(id);
                         _o1.className = "progress";
@@ -462,7 +438,6 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
                 this._spriteElms.get(spriteName).appendChild(elm);
                 this._sounds.add(elm);
 
-                // When this sound is finished, remove the progress element.
                 this._sound.once("end", Bridge.fn.bind(this, function () {
                     if (this._sounds.remove(elm)) {
                         this._spriteElms.get(spriteName).removeChild(elm);
@@ -492,10 +467,8 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
              */
             Resize: function () {
                 var $t, $t1, $t2, $t3;
-                // Calculate the scale of our window from "full" size.
-                var scale = (window.innerWidth - 60) / 3600; // 60 is margin width
+                var scale = (window.innerWidth - 60) / 3600;
 
-                // Resize and reposition the sprite overlays.
                 for (var i = 0; i < this._options.SpriteNames.length; i = (i + 1) | 0) {
                     var spriteName = ($t = this._options.SpriteNames)[System.Array.index(i, $t)];
                     var sprite = this._spriteElms.get(spriteName);
@@ -518,7 +491,6 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
              */
             Step: function (time) {
                 var $t, $t1;
-                // Loop through all active sounds and update their progress bar.
                 $t = Bridge.getEnumerator(this._sounds);
                 try {
                     while ($t.moveNext()) {
