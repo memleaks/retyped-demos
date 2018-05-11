@@ -145,7 +145,10 @@ namespace HowlerJsDemo
                 Width = new[] {78, 60, 62, 70, 62, 1895},
                 Left = new[] {0, 342, 680, 1022, 1361},
                 //Src = new[] {"sound2.webm", "sound2.mp3"},
-                Src = new[] { "https://raw.githubusercontent.com/goldfire/howler.js/master/tests/audio/sound2.webm", "https://raw.githubusercontent.com/goldfire/howler.js/master/tests/audio/sound2.mp3" },
+                Src = new[] {
+                    "https://raw.githubusercontent.com/Retyped/Demos/master/HowlerJsDemo/HowlerJsDemo/dist/assets/audio/sound2.webm",
+                    "https://raw.githubusercontent.com/Retyped/Demos/master/HowlerJsDemo/HowlerJsDemo/dist/assets/audio/sound2.mp3" 
+                },
                 Sprite = new howler.IHowlSoundSpriteDefinition
                 {
                     ["one"] = new Sequence<double, double>(0, 450),
