@@ -54,4 +54,8 @@ RD /S /Q .\dist\vis.js
 MD .\dist\vis.js
 XCOPY .\VisJsDemo\VisJsDemo\dist\* .\dist\vis.js /S /I
 
+RD /S /Q .\dist\howler.js
+MD .\dist\howler.js
+XCOPY .\HowlerJsDemo\HowlerJsDemo\dist\* .\dist\howler.js /S /I
+
 PAUSE

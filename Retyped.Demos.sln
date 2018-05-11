@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobX", "MobX\MobX\MobX.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisJsDemo", "VisJsDemo\VisJsDemo\VisJsDemo.csproj", "{F4D034CD-AD62-4B03-B464-A978BF31ACBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HowlerJsDemo", "HowlerJsDemo\HowlerJsDemo\HowlerJsDemo.csproj", "{1D809F4D-68B4-4313-81B2-275AB8184571}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{F4D034CD-AD62-4B03-B464-A978BF31ACBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4D034CD-AD62-4B03-B464-A978BF31ACBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4D034CD-AD62-4B03-B464-A978BF31ACBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D809F4D-68B4-4313-81B2-275AB8184571}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D809F4D-68B4-4313-81B2-275AB8184571}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D809F4D-68B4-4313-81B2-275AB8184571}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D809F4D-68B4-4313-81B2-275AB8184571}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
