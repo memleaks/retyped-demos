@@ -58,6 +58,8 @@
     "arrayIndex": "Managed",
     "autoProperty": "Plain",
     "boxing": "Managed",
+    "externalCast": "Plain",
+    "inlineComment": "Plain",
     "integer": "Managed",
     "lambda": "Plain"
   }

@@ -23,7 +23,7 @@
   // Enable browser debugging of C# files.
   // Default is false.
   "sourceMap": {
-    "enabled": false
+    "enabled": true
   },
 
   // Set to true to disable Reflection metadata generation.
@@ -54,6 +54,8 @@
     "arrayIndex": "Managed",
     "autoProperty": "Plain",
     "boxing": "Managed",
+    "externalCast": "Plain",
+    "inlineComment": "Plain",
     "integer": "Managed",
     "lambda": "Plain"
   }
