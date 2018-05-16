@@ -44,7 +44,7 @@
     "anonymousType": "Plain",
     "arrayIndex": "Managed",
     "autoProperty": "Plain",
-    "boxing": "Managed",
+    "boxing": "Plain",
     "externalCast": "Plain",
     "inlineComment": "Plain",
     "integer": "Managed",

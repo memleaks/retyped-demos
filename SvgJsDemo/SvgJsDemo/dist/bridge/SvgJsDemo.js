@@ -18,12 +18,12 @@ Bridge.assembly("SvgJsDemo", function ($asm, globals) {
     
                 btnPongGame.onclick = function (ev) {
                     SvgJsDemo.App.RenderPongGame();
-                    return Bridge.box(true, System.Boolean, System.Boolean.toString);
+                    return true;
                 };
     
                 btnAnimation.onclick = function (ev) {
                     SvgJsDemo.App.RenderAnimation();
-                    return Bridge.box(true, System.Boolean, System.Boolean.toString);
+                    return true;
                 };
     
                 SvgJsDemo.App.RenderPongGame();

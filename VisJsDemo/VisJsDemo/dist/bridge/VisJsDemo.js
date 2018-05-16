@@ -16,12 +16,12 @@ Bridge.assembly("VisJsDemo", function ($asm, globals) {
     
                 btnNetwork.onclick = function (ev) {
                     VisJsDemo.App.RenderNetwork();
-                    return Bridge.box(true, System.Boolean, System.Boolean.toString);
+                    return true;
                 };
     
                 btnTimeline.onclick = function (ev) {
                     VisJsDemo.App.RenderTimeline();
-                    return Bridge.box(true, System.Boolean, System.Boolean.toString);
+                    return true;
                 };
     
                 VisJsDemo.App.RenderNetwork();

@@ -366,7 +366,7 @@ Bridge.assembly("PhaserDemo", function ($asm, globals) {
                 for (var i = 0; i < 10; i = (i + 1) | 0) {
                     var bullet = this._bullets.create(this.game.rnd.integerInRange(200, 1700), this.game.rnd.integerInRange(-200, 400), "tinycar");
 
-                    this.game.physics.p2.enable(Bridge.unbox(bullet), false);
+                    this.game.physics.p2.enable(bullet, false);
                 }
 
                 this._cursors = this.game.input.keyboard.createCursorKeys();
