@@ -12,7 +12,7 @@
     "disabled": true
   },
 
-// Enable browser debugging of C# files.
+  // Enable browser debugging of C# files.
   // Default is false.
   "sourceMap": {
     "enabled": true
@@ -41,10 +41,13 @@
   // Rules to manage generated JavaScript syntax.
   // Default is "Managed"
   "rules": {
-    "integer": "Managed",
     "anonymousType": "Plain",
     "arrayIndex": "Managed",
-    "boxing": "Managed",
+    "autoProperty": "Plain",
+    "boxing": "Plain",
+    "externalCast": "Plain",
+    "inlineComment": "Plain",
+    "integer": "Managed",
     "lambda": "Plain"
   }
 
