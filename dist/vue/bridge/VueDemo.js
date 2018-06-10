@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2018
- * @compiler Bridge.NET 17.0.0
+ * @compiler Bridge.NET 17.1.0
  */
 Bridge.assembly("VueDemo", function ($asm, globals) {
     "use strict";

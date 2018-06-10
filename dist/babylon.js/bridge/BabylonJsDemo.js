@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2017
- * @compiler Bridge.NET 17.0.0
+ * @compiler Bridge.NET 17.1.0
  */
 Bridge.assembly("BabylonJsDemo", function ($asm, globals) {
     "use strict";
@@ -43,7 +43,6 @@ Bridge.assembly("BabylonJsDemo", function ($asm, globals) {
                         btns[System.Array.index(i, btns)].onclick = (function ($me, index) {
                             return function (e) {
                                 BabylonJsDemo.App.SwitchSceneTo(((index.v + 1) | 0));
-                                return null;
                             };
                         })(this, index);
                     }

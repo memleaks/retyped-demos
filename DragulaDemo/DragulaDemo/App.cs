@@ -145,7 +145,7 @@ namespace DragulaDemo
                 var target = (Element)e.target;
                 if (target.id == sortable.id)
                 {
-                    return null;
+                    return;
                 }
 
                 target.innerHTML += clickIndicator;
@@ -154,8 +154,6 @@ namespace DragulaDemo
                 {
                     target.innerHTML = target.innerHTML.Replace(clickIndicator, "");
                 }, 500);
-
-                return null;
             };
         }
     }

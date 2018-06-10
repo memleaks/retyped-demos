@@ -86,7 +86,7 @@ namespace ThreeJsDemo
             container.appendChild(renderer.domElement);
           
             //
-            window.addEventListener("resize", e => OnWindowResize(), false);
+            window.addEventListener("resize", (dom.Event e) => OnWindowResize(), false);
         }
 
         private static void OnWindowResize()

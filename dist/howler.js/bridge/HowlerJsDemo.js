@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2018
- * @compiler Bridge.NET 17.0.0
+ * @compiler Bridge.NET 17.1.0
  */
 Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
     "use strict";
@@ -18,7 +18,6 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
                 HowlerJsDemo.App._sprite != null ? HowlerJsDemo.App._sprite.Stop() : null;
 
                 HowlerJsDemo.App.RenderRadio();
-                return Bridge.box(true, System.Boolean, System.Boolean.toString);
             };
 
             btnSprite.onclick = function (ev) {
@@ -26,7 +25,6 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
                 HowlerJsDemo.App._sprite != null ? HowlerJsDemo.App._sprite.Stop() : null;
 
                 HowlerJsDemo.App.RenderSprite();
-                return Bridge.box(true, System.Boolean, System.Boolean.toString);
             };
 
             HowlerJsDemo.App.RenderRadio();
@@ -467,7 +465,7 @@ Bridge.assembly("HowlerJsDemo", function ($asm, globals) {
              */
             Resize: function () {
                 var $t, $t1, $t2, $t3;
-                var scale = (window.innerWidth - 60) / 3600;
+                var scale = (Bridge.Int.div((((window.innerWidth - 60) | 0)), 3600)) | 0;
 
                 for (var i = 0; i < this._options.SpriteNames.length; i = (i + 1) | 0) {
                     var spriteName = ($t = this._options.SpriteNames)[System.Array.index(i, $t)];

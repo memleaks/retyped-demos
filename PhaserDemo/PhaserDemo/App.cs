@@ -37,8 +37,6 @@ namespace PhaserDemo
                 btns[i].onclick = e =>
                 {
                     SwitchGameTo(index + 1);
-
-                    return null;
                 };
             }
         }

@@ -22,13 +22,11 @@ namespace SvgJsDemo
             btnPongGame.onclick = ev =>
             {
                 RenderPongGame();
-                return true;
             };
 
             btnAnimation.onclick = ev =>
             {
                 RenderAnimation();
-                return true;
             };
 
             // Render Pong Game by default
@@ -82,14 +80,14 @@ namespace SvgJsDemo
             // Create Div for SVG elements:
             var svgDiv = new HTMLDivElement();
 
-            var draw = svgjs2.Self(svgDiv).viewbox(0, 0, 300, 140).Value;
+            var draw = svgjs2.Self(svgDiv).viewbox(0, 0, 300, 140);
             var text = draw.text(add =>
             {
                 add.tspan(input.value);
             });
 
             text
-                .path("M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80").Value
+                .path("M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80")
                 .animate(1000, "<>")
                 .plot("M10 80 C 40 150, 65 150, 95 80 S 150 10, 180 80")
                 .loop(null, true);

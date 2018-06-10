@@ -38,7 +38,7 @@ namespace HowlerJsDemo.SpriteDemo
             });
 
             // Setup a resize event and fire it to setup our sprite overlays.
-            window.addEventListener("resize", e =>
+            window.addEventListener("resize", (Event e) =>
             {
                 Resize();
             }, false);
@@ -160,10 +160,10 @@ namespace HowlerJsDemo.SpriteDemo
                 var spriteName = _options.SpriteNames[i];
                 var sprite = _spriteElms[spriteName];
 
-                sprite.style.width = Math.Round(_options.Width[i] * scale) + "px";
+                sprite.style.width = Math.Round(_options.Width[i] * (double)scale) + "px";
                 if (i < _options.Left.Length && _options.Left[i] > 0)
                 {
-                    sprite.style.left = Math.Round(_options.Left[i] * scale) + "px";
+                    sprite.style.left = Math.Round(_options.Left[i] * (double)scale) + "px";
                 }
             }
         }

@@ -20,13 +20,11 @@ namespace VisJsDemo
             btnNetwork.onclick = ev =>
             {
                 RenderNetwork();
-                return true;
             };
 
             btnTimeline.onclick = ev =>
             {
                 RenderTimeline();
-                return true;
             };
 
             // Render Network sample by default

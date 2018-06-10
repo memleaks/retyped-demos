@@ -68,11 +68,11 @@ namespace SvgJsDemo
 
             // create and position left paddle
             paddleLeft = draw.rect(paddleWidth, paddleHeight);
-            paddleLeft.x(0).Value.cy(height / 2).Value.fill("#00ff99");
+            paddleLeft.x(0).cy(height / 2).fill("#00ff99");
 
             // create and position right paddle
             paddleRight = paddleLeft.clone();
-            paddleRight.x(width - paddleWidth).Value.fill("#ff0066");
+            paddleRight.x(width - paddleWidth).fill("#ff0066");
 
 
             // define ball size
@@ -80,7 +80,7 @@ namespace SvgJsDemo
 
             // create ball
             ball = draw.circle(ballSize);
-            ball.center(width / 2, height / 2).Value.fill("#7f7f7f");
+            ball.center(width / 2, height / 2).fill("#7f7f7f");
 
 
             // define inital player score
@@ -95,11 +95,11 @@ namespace SvgJsDemo
                     family = "Menlo, sans-serif",
                     anchor = "end",
                     style = "color:#fff"
-                }).Value.move(width / 2 - 10, 10);
+                }).move(width / 2 - 10, 10);
 
             // cloning rocks!
             scoreRight = (svgjs.Text) ((svgjs.Text) scoreLeft.clone())
-                .text(playerRight + "").Value
+                .text(playerRight + "")
                 .font("anchor", "start")
                 .x(width / 2 + 10);
 
@@ -280,7 +280,7 @@ namespace SvgJsDemo
 
             // create circle to carry the gradient
             var blast = draw.circle(300);
-            blast.center(ball.cx(), ball.cy()).Value.fill(gradient);
+            blast.center(ball.cx(), ball.cy()).fill(gradient);
         
             // animate to invisibility
             blast.animate(1000, ">").opacity(0).after(() =>

@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2018
- * @compiler Bridge.NET 17.0.0
+ * @compiler Bridge.NET 17.1.0
  */
 Bridge.assembly("SvgJsDemo", function ($asm, globals) {
     "use strict";
@@ -18,12 +18,10 @@ Bridge.assembly("SvgJsDemo", function ($asm, globals) {
     
                 btnPongGame.onclick = function (ev) {
                     SvgJsDemo.App.RenderPongGame();
-                    return Bridge.box(true, System.Boolean, System.Boolean.toString);
                 };
     
                 btnAnimation.onclick = function (ev) {
                     SvgJsDemo.App.RenderAnimation();
-                    return Bridge.box(true, System.Boolean, System.Boolean.toString);
                 };
     
                 // Render Pong Game by default

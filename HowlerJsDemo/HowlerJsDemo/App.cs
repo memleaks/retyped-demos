@@ -26,7 +26,6 @@ namespace HowlerJsDemo
                 _sprite?.Stop();
 
                 RenderRadio();
-                return true;
             };
 
             btnSprite.onclick = ev =>
@@ -35,7 +34,6 @@ namespace HowlerJsDemo
                 _sprite?.Stop();
 
                 RenderSprite();
-                return true;
             };
 
             // Render Radio sample by default

@@ -1,7 +1,6 @@
 ﻿using Bridge;
 using System;
 using Retyped;
-using Retyped.Primitive;
 using static Retyped.node;
 using static Retyped.express_serve_static_core;
 
@@ -156,7 +155,7 @@ namespace NodeJsDemo
         public class ExpressAppHandlerConfig
         {
             private readonly ExpressApp _app;
-            private readonly IRouterMatcher<This<IRouter>> _config;
+            private readonly IRouterMatcher<IRouter> _config;
 
             public Action<Request, Response> this[string path]
             {
@@ -166,7 +165,7 @@ namespace NodeJsDemo
                 }
             }
 
-            public ExpressAppHandlerConfig(ExpressApp app, IRouterMatcher<This<IRouter>> config)
+            public ExpressAppHandlerConfig(ExpressApp app, IRouterMatcher<IRouter> config)
             {
                 if (config == null) throw new ArgumentNullException(nameof(config));
 
@@ -188,7 +187,7 @@ namespace NodeJsDemo
             /// This method is required to pass "Express app" as a context for "config(path, handler)" function call.
             /// </summary>
             [Template("{1}.call({0}, {2}, {3})")]
-            private static extern void Call(Express app, IRouterMatcher<This<IRouter>> config, string path, RequestHandler handler);
+            private static extern void Call(Express app, IRouterMatcher<IRouter> config, string path, RequestHandler handler);
 
             /// <summary>
             /// Converts .NET delegate to a <see cref="RequestHandler"/> class instance.

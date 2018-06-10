@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2017
- * @compiler Bridge.NET 17.0.0
+ * @compiler Bridge.NET 17.1.0
  */
 Bridge.assembly("ChartJsDemo", function ($asm, globals) {
     "use strict";
@@ -112,7 +112,7 @@ Bridge.assembly("ChartJsDemo", function ($asm, globals) {
                     }
                 },
                 GetLabels: function () {
-                    return new Array(System.Array.init(["Red"], System.String), System.Array.init(["Blue"], System.String), System.Array.init(["Yellow"], System.String), System.Array.init(["Green"], System.String), System.Array.init(["Purple"], System.String), System.Array.init(["Orange"], System.String));
+                    return new Array("Red", System.Array.init(["Blue"], System.String), System.Array.init(["Yellow"], System.String), System.Array.init(["Green"], System.String), System.Array.init(["Purple"], System.String), System.Array.init(["Orange"], System.String));
                 },
                 GetRandomData: function (max, seed) {
                     if (seed === void 0) { seed = 0; }

@@ -33,7 +33,7 @@ namespace BabylonJsDemo
         private static void InitEventHandlers()
         {
             // Resize scene with according to the window size:
-            dom.window.addEventListener("resize", e =>
+            dom.window.addEventListener("resize", (dom.Event e) =>
             {
                 _engine.resize();
             });
@@ -52,7 +52,6 @@ namespace BabylonJsDemo
                 btns[i].onclick = e =>
                 {
                     SwitchSceneTo(index + 1);
-                    return null;
                 };
             }
         }

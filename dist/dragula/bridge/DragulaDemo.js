@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2017
- * @compiler Bridge.NET 17.0.0
+ * @compiler Bridge.NET 17.1.0
  */
 Bridge.assembly("DragulaDemo", function ($asm, globals) {
     "use strict";
@@ -74,7 +74,7 @@ Bridge.assembly("DragulaDemo", function ($asm, globals) {
                     sortable.onclick = function (e) {
                         var target = Bridge.cast(e.target, Element);
                         if (Bridge.referenceEquals(target.id, sortable.id)) {
-                            return null;
+                            return;
                         }
 
                         target.innerHTML = (target.innerHTML || "") + (clickIndicator || "");
@@ -82,8 +82,6 @@ Bridge.assembly("DragulaDemo", function ($asm, globals) {
                         setTimeout(function (timeoutEv) {
                             target.innerHTML = System.String.replaceAll(target.innerHTML, clickIndicator, "");
                         }, 500);
-
-                        return null;
                     };
                 }
             }

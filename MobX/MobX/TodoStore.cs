@@ -117,8 +117,6 @@ namespace MobX
                 {
                     addButton.disabled = string.IsNullOrEmpty(input.value);
                 }
-
-                return null;
             };
 
             addButton.onclick = e =>
@@ -126,7 +124,6 @@ namespace MobX
                 AddTodoItem(input.value);
                 input.value = string.Empty;
                 input.onkeyup(null);
-                return null;
             };
 
             _progressLabel = new HTMLLabelElement();
@@ -164,7 +161,6 @@ namespace MobX
                     // Remove the item and the controls:
                     _todoDiv.removeChild(itemDiv);
                     _todos.remove(item);
-                    return null;
                 }
             };
 

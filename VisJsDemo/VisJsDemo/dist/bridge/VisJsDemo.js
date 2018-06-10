@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2018
- * @compiler Bridge.NET 17.0.0
+ * @compiler Bridge.NET 17.1.0
  */
 Bridge.assembly("VisJsDemo", function ($asm, globals) {
     "use strict";
@@ -16,12 +16,10 @@ Bridge.assembly("VisJsDemo", function ($asm, globals) {
     
                 btnNetwork.onclick = function (ev) {
                     VisJsDemo.App.RenderNetwork();
-                    return Bridge.box(true, System.Boolean, System.Boolean.toString);
                 };
     
                 btnTimeline.onclick = function (ev) {
                     VisJsDemo.App.RenderTimeline();
-                    return Bridge.box(true, System.Boolean, System.Boolean.toString);
                 };
     
                 // Render Network sample by default
