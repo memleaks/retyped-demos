@@ -152,7 +152,7 @@ namespace HowlerJsDemo.SpriteDemo
         private void Resize()
         {
             // Calculate the scale of our window from "full" size.
-            var scale = (window.innerWidth - 60) / 3600; // 60 is margin width
+            var scale = (window.innerWidth - 60) / 3600.0; // 60 is margin width
 
             // Resize and reposition the sprite overlays.
             for (var i = 0; i < _options.SpriteNames.Length; i++)
@@ -160,10 +160,10 @@ namespace HowlerJsDemo.SpriteDemo
                 var spriteName = _options.SpriteNames[i];
                 var sprite = _spriteElms[spriteName];
 
-                sprite.style.width = Math.Round(_options.Width[i] * (double)scale) + "px";
+                sprite.style.width = Math.Round(_options.Width[i] * scale) + "px";
                 if (i < _options.Left.Length && _options.Left[i] > 0)
                 {
-                    sprite.style.left = Math.Round(_options.Left[i] * (double)scale) + "px";
+                    sprite.style.left = Math.Round(_options.Left[i] * scale) + "px";
                 }
             }
         }
